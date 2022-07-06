@@ -11,6 +11,10 @@ def about_game():
     )
 
 def play_game():
+
+    """
+    Asks player if they would like to start the game.
+    """
     play_game_choice = input("Will you help them? y/n \n").lower()
 
     if play_game_choice == "y":
@@ -21,21 +25,82 @@ def play_game():
         print("Exiting game.\n")
     else:
         print("Please enter either y or n.\n")
+        play_game()
+
+
+def weapon_choice():
+    """
+    Asks player to choose a weapon for their character.
+    """
+
+    weapons = [
+        "Bow & Arrow",
+        "Sword & Shield",
+        "Daggers"
+        "Greatsword"
+    ]
+    print(
+        "The Dwarves would like to offer you a weapon.\n"
+        "Your choices are:\n"
+        "a) Bow & Arrow\n"
+        "b) Sword & Shield\n"
+        "c) Daggers\n"
+        "d) Greatsword\n"
+    )
+
+    choose_weapon = input("Please choose either a, b, c or d\n")
+
+    if "a" in choose_weapon:
+        print(
+            "Excellent choice!\n"
+            "You are given a dark-stained wood longbow\n"
+            "Sometimes, attacking from afar is the best option.\n"
+            )
+    elif "b" in choose_weapon:
+        print(
+            "Excellent choice!\n"
+            "You are given a silver sword with intricate gold carving"
+            "and a matching shield.\n"
+            "With these, you can defend and attack with ease.\n"
+        )
+    elif "c" in choose_weapon:
+        print(
+            "Excellent choice!\n"
+            "You are given two small daggers with bronze leaf detail.\n"
+            "These will allow you to perform amazing sneak attacks.\n"
+        )
+    elif "d" in choose_weapon:
+        print(
+            "Excellent choice!\n"
+            "You are given a beautiful greatsword with a curved blade.\n"
+            "With this, you can perform powerful attacks and do immense damage.\n"
+        )
+    else:
+        print("Please choose either a, b, c or d.\n")
+        weapon_choice()
 
 
 def choose_name():
     """
-    Asks player to choose a character name
+    Asks player to choose a character name.
     """
     name_input = input("Please choose a name for your character:").capitalize()
 
     print(f"Welcome to the company, {name_input}! \n")
 
 
+# def start_game():
+
+# def exit_game():
+
+
 
 def main():
     about_game()
     play_game()
+    #start_game()
+    #exit_game()
     choose_name()
+    weapon_choice()
 
 main()
