@@ -53,7 +53,7 @@ def weapon_choice():
     if "a" in choose_weapon:
         print(
             "Excellent choice!\n"
-            "You are given a dark-stained wood longbow\n"
+            "You are given a dark-stained wood longbow.\n"
             "Sometimes, attacking from afar is the best option.\n"
             )
     elif "b" in choose_weapon:
@@ -78,6 +78,37 @@ def weapon_choice():
     else:
         print("Please choose either a, b, c or d.\n")
         weapon_choice()
+
+
+def first_battle():
+    print(
+        "After travelling through torrential rain, you and the Dwarves"
+        "stumble across a run-down farm building. Here, you decide to"
+        "take shelter for the night.\n"
+        "You join two of the Dwarves, Dwalin and Bifur, to hunt for firewood.\n"
+    )
+
+    print(
+        "You enter a clearing. It looks like this is a common area for wood"
+        "collection - the area is littered with branches and chopped trees.\n"
+        "The three of you begin to gather what you can carry.\n"
+        "Suddenly, tou hear a rustling over to the east, followed by a low growl"
+        "The Dwarves motion for silence and ready their weapons.\n"
+        ""
+    )
+
+    print(
+        "From the other side of the clearing emerge five Orcs and a Warg!\n"
+        "The Orcs position themselves, ready to fight.\n"
+        "a) One approaches with the Warg, teeth bared.\n"
+        "b) One stay in the middle, defending the back line.\n"
+        "c) Two remain at the back, shouting viciously.\n"
+        "d) One drifts to the side, ducking into the foliage.\n"
+    )
+
+    print("It's time to put your new weapon to good use!\n")
+
+    first_battle_choice = input("Which enemy do you target? a, b, c or d \n")
 
 
 def choose_name():
