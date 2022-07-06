@@ -111,7 +111,7 @@ def first_battle():
         "From the other side of the clearing emerge five Orcs and a Warg!\n"
         "The Orcs position themselves, ready to fight.\n"
         "a) One approaches with the Warg, teeth bared.\n"
-        "b) One stay in the middle, defending the back line.\n"
+        "b) One stays in the middle, defending the back line.\n"
         "c) Two remain at the back, shouting viciously.\n"
         "d) One drifts to the side, ducking into the foliage.\n"
     )
@@ -119,6 +119,66 @@ def first_battle():
     print("It's time to put your new weapon to good use!\n")
 
     first_battle_choice = input("Which enemy do you target? a, b, c or d \n")
+
+    if "a" in first_battle_choice and "Sword & Shield" in inventory:
+        print(
+            "You ready a defensive stance in front of the Dwarves.\n"
+            "The Orc and Warg attack, but you successfully deflect them"
+            "with your shield.\n"
+            "Phew! That's two down, and the Dwarves have dealt with the rest!\n"
+        )
+    
+    elif "a" in first_battle_choice and "Sword & Shield" not in inventory:
+        print(
+            "Oh no! Your chosen weapon is not suitable for this type of combat.\n"
+            "The Orc and Warg attack, forcing you to fall back.\n"
+            "Luckily, Dwalin stops them before they can hurt any of you.\n"
+        )
+
+    elif "b" in first_battle_choice and "Greatsword" in inventory:
+        print(
+            "You charge past the first Orc and Warg to the Orc in the middle.\n"
+            "Letting loose a cry, you swing your greatsword down on the enemy.\n"
+            "Success! The Orc is severely wounded. It retreats back into the forest.\n"
+        )
+    
+    elif "b" in first_battle_choice and "Greatsword" not in inventory:
+        print(
+            "Oh no! The Orc deflects your attack, knocking you back.\n"
+            "You take cover, reassessing the situation as the Dwarves counterattack.\n"
+        )
+
+    elif "c" in first_battle_choice and "Bow & Arrow" in inventory:
+        print(
+            "You ready your bow, drawing back the string and letting loose"
+            "an arrow. It sails past the first two Orcs and the Warg, finding"
+            "its mark in one of the Orcs at the back. You repeat the action,"
+            "taking down the second Orc as well."
+        )
+    
+    elif "c" in first_battle_choice and "Bow & Arrow" not in inventory:
+        print(
+            "You charge towards the enemies at the back, but they see you coming,"
+            "loosing their own arrows. You narrowly escape the flying blades and"
+            "are forced to retreat.\n"
+        )
+    
+    elif "d" in first_battle_choice and "Daggers" in inventory:
+        print(
+            "You crouch, taking a wide birth to sneak up on the hidden Orc.\n"
+            "They don't see you coming, and you successfully land a hit!\n"
+            "Nice, that's one down! Bifur and Dwalin can deal with the rest.\n"
+        )
+    
+    elif "d" in first_battle_choice and "Daggers" not in inventory:
+        print(
+            "It's difficult to crouch with your weapon ready, and you stumble,"
+            "alerting the hidden Orc to your approach. They spring from the"
+            "foliage, charging at you. Time to retreat back behind the Dwarves!\n"
+        )
+    
+    else:
+        print("Please choose either a, b, c or d\n")
 
 
 def choose_name():
@@ -146,5 +206,6 @@ def main():
     #exit_game()
     choose_name()
     weapon_choice()
+    first_battle()
 
 main()
