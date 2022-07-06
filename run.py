@@ -2,6 +2,8 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
+inventory = []
+
 def about_game():
     print(
         "Welcome to the Hobbit adventure game!\n"
@@ -55,26 +57,34 @@ def weapon_choice():
             "Excellent choice!\n"
             "You are given a dark-stained wood longbow.\n"
             "Sometimes, attacking from afar is the best option.\n"
+            "Bow & Arrow was added to your inventory.\n"
             )
+        add_to_inventory("Bow & Arrow")
     elif "b" in choose_weapon:
         print(
             "Excellent choice!\n"
             "You are given a silver sword with intricate gold carving"
             "and a matching shield.\n"
             "With these, you can defend and attack with ease.\n"
+            "Sword & Shield was added to your inventory.\n"
         )
+        add_to_inventory("Sword & Shield")
     elif "c" in choose_weapon:
         print(
             "Excellent choice!\n"
             "You are given two small daggers with bronze leaf detail.\n"
             "These will allow you to perform amazing sneak attacks.\n"
+            "Daggers were added to your inventory.\n"
         )
+        add_to_inventory("Daggers")
     elif "d" in choose_weapon:
         print(
             "Excellent choice!\n"
             "You are given a beautiful greatsword with a curved blade.\n"
             "With this, you can perform powerful attacks and do immense damage.\n"
+            "Greatsword was added to your inventory.\n"
         )
+        add_to_inventory("Greatsword")
     else:
         print("Please choose either a, b, c or d.\n")
         weapon_choice()
@@ -119,6 +129,9 @@ def choose_name():
 
     print(f"Welcome to the company, {name_input}! \n")
 
+def add_to_inventory(item):
+    inventory.append(item)
+    print(inventory)
 
 # def start_game():
 
