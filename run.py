@@ -10,18 +10,32 @@ def about_game():
         "This adventure is not for the weak of heart.\n"
     )
 
+def play_game():
+    play_game_choice = input("Will you help them? y/n \n").lower()
+
+    if play_game_choice == "y":
+        #start_game()
+        print("Starting game.\n")
+    elif play_game_choice == "n":
+        #exit_game()
+        print("Exiting game.\n")
+    else:
+        print("Please enter either y or n.\n")
+
 
 def choose_name():
     """
     Asks player to choose a character name
     """
-    name_input = input("Please choose a name for your character!")
+    name_input = input("Please choose a name for your character:").capitalize()
 
-    print(f"Welcome to the company, {name_input}!")
+    print(f"Welcome to the company, {name_input}! \n")
+
 
 
 def main():
     about_game()
+    play_game()
     choose_name()
 
 main()
