@@ -344,63 +344,83 @@ def post_second_battle():
 
 def third_battle():
     slowprint(
-        "Things are quite for a while. \n"
+        "Things are quiet for a while. \n"
         "You enjoy the good weather the new day has to offer.\n"
         "Suddenly, Ori shouts, and you and the company see two ginormous "
         "bears bounding towards you...\n"
         "Do you take cover behind the others, or join those who are attacking?"
     )
     
-    third_battle_choice = input("y/n").lower()
+    third_battle_choice = input("y/n \n").lower()
 
-    if "y" or "cover" in third_battle_choice and "Bow & Arrow" and "Injury1" in inventory:
-        slowprint(
-            f"Wise decision. Your {weapons} is best suited to ranged combat, "
-            "and your injury means you should avoid the heat of battle."
-        )
-        add_to_inventory("Sensible")
+    if "y" or "cover" in third_battle_choice:
+        
+        if "Injury1" in inventory and "Sword & Shield" or "Greatsword" in inventory:
+            slowprint(
+                f"Wise decision. Your {weapons} is suited for this type of combat, "
+                "however your injury would likely have got you in trouble. \n"
+            )
+            add_to_inventory("Sensible")
+        
+        elif "Sword & Shield" or "Greatsword" in inventory:
+            slowprint(
+                "Come on, now. What's the point in choosing the upfront weapons if "
+                "you're just going to hide at the back?"
+            )
+            add_to_inventory("Cowardly2")
+        
+        elif "Bow & Arrow" in inventory:
+            if "Injury1" and "Cowardly" in inventory:
+                slowprint(
+                    f"Wise decision. Your {weapons} is best suited to ranged combat, "
+                    "and your injury means you should avoid the heat of battle. "
+                    "You may be a bit cowardly, but you're also sensible."
+                )
+                add_to_inventory("Sensible")
+                inventory.remove("Cowardly")
+        
+            else:
+                if "Injury" in inventory:
+                    slowprint(
+                        "Wise decision. Your injury means you should avoid the "
+                        "battle, even with your ranged weapon."
+                    )
+                
+                elif "Cowardly" in inventory:
+                    slowprint(
+                        f"Wise decision. Your {weapons} is best suited to ranged combat. "
+                        "You may be a bit cowardly, but you're also sensible."
+                    )
+                    add_to_inventory("Sensible")
+                    inventory.remove("Cowardly")
+                
+                else:
+                    slowprint(
+                        f"Wise decision. Your {weapons} is best suited to ranged combat. "
+                    )
+        else:
+            slowprint(
+                "Yeah, Daggers probably wouldn't have helped out much, here"
+            )
 
-    elif "y" or "cover" in third_battle_choice and "Bow & Arrow" and "Cowardly" in inventory:
-        slowprint(
-            f"Wise decision. Your {weapons} is best suited to ranged combat. "
-            "You may be a bit cowardly, but you're also sensible."
-        )
-        add_to_inventory("Sensible")
-        inventory.remove("Cowardly")
-
-    elif "y" or "cover" in third_battle_choice and "Bow & Arrow" in inventory:
-        slowprint(
-            f"Wise decision. Your {weapons} is best suited to ranged combat. "
-        )
-
-    elif "y" or "cover" in third_battle_choice and "Sword & Shield" or "Greatsword" in inventory and "Injury1" in inventory:
-        slowprint(
-            f"Wise decision. Your {weapons} is suited for this type of combat, "
-            "however your injury would likely have got you in trouble. \n"
-        )
-        add_to_inventory("Sensible")
-
-    elif "y" or "cover" in third_battle_choice and "Sword & Shield" or "Greatsword" in inventory:
-        slowprint(
-            "Come on, now. What's the point in choosing the upfront weapons if you're "
-            "just going to hide at the back?"
-        )
-        add_to_inventory("Cowardly2")
     elif "n" or "join" in third_battle_choice and "Bow & Arrow" in inventory:
         slowprint(
             "Well, I'm sure you've made better decisions in your life...\n"
             "Before you can even notch an arrow, you're down for the count.\n"
         )
         add_to_inventory("Injury2")
+
     elif "n" or "join" in third_battle_choice and "Bow & Arrow" and "Injury1" not in inventory:
         slowprint(
-            "Your bravery is commendable, and rewarded! You land a solid hit on one of the bears "
-            "and the between you, save yourselves from this threat.\n"
+            "Your bravery is commendable, and rewarded! You land a solid hit "
+            "on one of the bears and the between you, save yourselves from "
+            "this threat.\n"
         )
+
     else:
         slowprint(
-            "Your brave, we'll give you that, but maybe reserve that bravery for when "
-            "you aren't injured and being attacked by bears...\n"
+            "Your brave, we'll give you that, but maybe reserve that bravery "
+            "for when you aren't injured and being attacked by bears...\n"
             "Better luck next time!\n"
             "Game Over!"
         )
