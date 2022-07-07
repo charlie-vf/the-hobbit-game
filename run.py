@@ -45,7 +45,7 @@ def weapon_choice():
     """
     Asks player to choose a weapon for their character.
     """
-
+    global weapons
     weapons = [
         "a) Bow & Arrow",
         "b) Sword & Shield",
@@ -67,6 +67,7 @@ def weapon_choice():
             "Sometimes, attacking from afar is the best option.\n"
             "Bow & Arrow was added to your inventory.\n"
             )
+        weapons = "Bow & Arrow"
         add_to_inventory("Bow & Arrow")
     elif "b" in choose_weapon:
         slowprint(
@@ -76,6 +77,7 @@ def weapon_choice():
             "With these, you can defend and attack with ease.\n"
             "Sword & Shield was added to your inventory.\n"
         )
+        weapons = "Sword & Shield"
         add_to_inventory("Sword & Shield")
     elif "c" in choose_weapon:
         slowprint(
@@ -84,6 +86,7 @@ def weapon_choice():
             "These will allow you to perform amazing sneak attacks.\n"
             "Daggers were added to your inventory.\n"
         )
+        weapons = "Daggers"
         add_to_inventory("Daggers")
     elif "d" in choose_weapon:
         slowprint(
@@ -92,6 +95,7 @@ def weapon_choice():
             "With this, you can perform powerful attacks and do immense damage.\n"
             "Greatsword was added to your inventory.\n"
         )
+        weapons = "Greatsword"
         add_to_inventory("Greatsword")
     else:
         print("Please choose either a, b, c or d.\n")
@@ -318,7 +322,7 @@ def third_battle():
             "Somebody should really have supplied you with an adventuring "
             "handbook.\n"
             "As a reminder, your weapon is "
-            f"{weapon}, you have sustained an injury and your fellow "
+            f"{weapons}, you have sustained an injury and your fellow "
             "travellers view you as a bit cowardly.\n"
         )
     elif "Injury1" in inventory:
@@ -326,7 +330,7 @@ def third_battle():
             "Somebody should really have supplied you with an adventuring "
             "handbook.\n"
             "As a reminder, your weapon is "
-            f"{weapon} and you have sustained an injury."
+            f"{weapons} and you have sustained an injury."
         )
     elif "Cowardly" in inventory:
         slowprint(
