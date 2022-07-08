@@ -518,9 +518,8 @@ def fourth_battle_seriously_injured():
         "the turrets above... \n"
         "The battle begins!\n"
     )
-    fbsi_choice_wrong = "Looks like you're sitting out the rest of this battle...\n"
     
-    if "Bow & Arrow" in inventory:
+    if "Bow & Arrow" in weapons:
         slowprint(
             "At least you chose a bow! \n"
             "You join the other archers and prepare to attack...\n"
@@ -532,8 +531,10 @@ def fourth_battle_seriously_injured():
             "b) Assume one of the dagger-wielders is protecting the flank, \n"
             "c) Shout for the attention of the others, \n"
         )
-        fbsi_choice = input("")
-        if fbsi_choice == "a":
+        fbsi_archer_choice = input("")
+        fbsi_archer_choice_wrong = "Looks like you're sitting out the rest of this battle...\n"
+
+        if fbsi_archer_choice == "a":
             slowprint(
                 "You pivot, firing an arrow towards the sneaking enemy...\n"
                 "You miss... but you try again and succeed! \n"
@@ -542,16 +543,17 @@ def fourth_battle_seriously_injured():
                 "looses an arrow before you can react.\n"
                 "It's not a lethal hit, but you're not going to be much use, now.\n"
             )
-            fbsi_choice_wrong
-        elif fbsi_choice == "b":
+            fbsi_archer_choice_wrong
+        elif fbsi_archer_choice == "b":
             slowprint(
                 "Teamwork is a wonderful thing, truly. \n"
                 "You say nothing, losing sight of the enemy until you hear a cry...\n"
                 "Oh no! They attacked Balin! \n"
                 "You duck out of battle to lead Balin to safety, leaving only "
                 "one archer to take down those on the turrets."
+                "I supposed you really did earn that cowardly attribute, eh?\n"
             )
-            fbsi_choice_wrong
+            fbsi_archer_choice_wrong
         else:
             slowprint(
                 "You alert the others to the enemy's approach. \n"
@@ -560,15 +562,50 @@ def fourth_battle_seriously_injured():
                 "Good work!\n"
             )
 
-    elif "Sword & Shield" or "Greatsword" in inventory:
+    else:
         slowprint(
             "Well, best of luck to you. \n"
             "Together with the other melee users, you charge through the "
             "gates towards the emerging enemies.\n"
             "The battle is loud and violent, the sounds of blades ringing "
             "throughout the space./n"
-            "You catch sight of "
+            "You notice three enemies attempting to push past to the archers "
+            "at the back... \n"
+            "Do you:\n a) Break ranks to target them,\n"
+            "b) Attempt to shout loud enough to be heard over the fighting,\n"
+            "c) Focus on the enemies around you - the archers will protect themselves.\n"
         )
+        fbsi_melee_choice = input("")
+        fbsi_melee_choice_wrong = "Sometimes you need to take intiative. After \n all, your company is very small, you can't afford to lose anyone."
+
+        if fbsi_melee_choice == "a":
+            "You made a difficult decision in the heat of battle, \n"
+            "thankfully, it pays off, and you prevent the enemies from moving "
+            "past, forcing them back into the fray.\n"
+            "Good job!"
+        elif fbsi_melee_choice == "b":
+            "I'm sure you can shout loudly, but not that loudly.\n"
+            "Nobody hears you, and the enemy rushes past, taking out one of "
+            "your archers before the other can stop them."
+            fbsi_melee_choice_wrong
+        else:
+            "This was a gamble, but luckily it pays off. Balin spots the "
+            "rebellious trio, and prevents them from attacking."
+
+def fourth_battle_quite_injured():
+    if "Bow & Arrow" in weapons:
+
+
+def fourth_battle_sensible:
+    slowprint(
+        "Fuelled by the success of your previous battles, "
+        "you and the company attack strong, breezing through the enemy "
+        "and pushing forward to the front doors. \n"
+        "A cry sounds from within, as the thief who owns this fortress "
+        "realises they have been beat."
+        "As you defeat their army, something comes flying from a high window...\n"
+        "It's the key! The thief flees their fortress, but you have what you came for!\n"
+    )
 
 
 def choose_name():
