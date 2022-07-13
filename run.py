@@ -515,7 +515,7 @@ def fourth_battle_injured():
                 "Your injuries jar you and you miss..."
                 "But it's okay, Kili noticed your attempt and lands his own shot! \n"
                 "However, you left yourself exposed, and a turret archer \n"
-                "looses an arrow before you can react.\n"
+                "looses an arrow before you can react. \n"
                 "It's not a lethal hit, but you're not going to be much use, now. \n"
             )
             slowprint(fbsi_archer_choice_wrong)
@@ -526,9 +526,11 @@ def fourth_battle_injured():
                 "Oh no! They attacked Balin! \n"
                 "You duck out of battle to lead Balin to safety, leaving only \n"
                 "one archer to take down those on the turrets. \n"
-                "I supposed you really did earn that cowardly attribute, eh? \n"
+                "The archers quickly overwhelm the Company, the melee users \n"
+                "powerless to stop them... \n"
+                "So near, and yet so far... \n"
             )
-            slowprint(fbsi_archer_choice_wrong)
+            game_over()
         else:
             slowprint(
                 "You alert the others to the enemy's approach. \n"
@@ -564,15 +566,18 @@ def fourth_battle_injured():
         elif fbsi_melee_choice == "b":
             slowprint(
                 "I'm sure you can shout loudly, but not that loudly. \n"
-                "Nobody hears you, and the enemy rushes past, taking out one of \n"
+                "Nobody hears you, and the enemies rush past, taking out \n"
                 "your archers before the other can stop them. \n"
+                "With no ranged defence, the Company is quickly overwhelmed... \n"
             )
-            slowprint(fbsi_melee_choice_wrong)
+            game_over()
         else:
             slowprint(
-                "This was a gamble, but luckily it pays off. Balin spots the \n"
-                "rebellious trio, and prevents them from attacking. \n"
+                "This was a gamble. Balin spots the rebellious trio \n"
+                "and attempts to prevent them from attacking. Unfortunately, he \n"
+                "is seriously injured and out of the battle. \n"
             )
+            slowprint(fbsi_melee_choice_wrong)
     fourth_battle()
 
 
@@ -602,8 +607,8 @@ def fourth_battle_cowardly():
                 "Still a bit cowardly, I see. The others don't see the approaching \n"
                 "enemy until it's too late.\n"
                 "Balin is injured before you counterattack.\n"
-                "You lead him to safety, but this leaves all the remainding turret \n"
-                "archers to one man.\n"
+                "You lead him to safety, but this leaves all the remaining turret \n"
+                "archers to one man... \n"
             )
     else:
         slowprint(
@@ -638,30 +643,70 @@ def fourth_battle_cowardly():
                 "approaching one is going to be even more important if they \n"
                 "get the drop on any of you... \n"
                 "Which they do. Gloin is attacked before anyone else can react \n"
-                "disrupting the flow of the Company.\n"
+                "disrupting the flow of the Company. \n"
                 "Your reluctance to commit costs another two Dwarves an injury \n"
-                "before the sneaky enemy is dispatched.\n"
+                "before the sneaky enemy is dispatched. \n"
+                "With a significant chunk of the group out of commission, the Company \n"
+                "is quickly overwhelmed... \n"
             )
+            game_over()
     fourth_battle()
 
 
-def fourth_battle_sensible():
-    slowprint(
-        "Fuelled by the success of your previous battles, \n"
-        "you and the company attack strong, breezing through the enemy \n"
-        "and pushing forward to the front doors. \n"
-    )
+def fourth_battle_good():
+    if "Sensible" in inventory:
+        slowprint(
+            "The Company view you as a sensible companion... \n"
+            "Let's not prove them wrong... \n"
+        )
+    else:
+        slowprint(
+            "Fuelled by the success of your previous battles, \n"
+            "you and the company attack strong, breezing through the enemy \n"
+            "and pushing forward to the front doors. \n"
+        )
 
-def fourth_battle():
-    slowprint(
-        "The battle rages on, but it looks like you're winning! \n"
-        "Suddenly, a cry sounds from within, as the thief who owns \n"
-        "this fortress realises they have been beat. \n"
-        "As you defeat their army, something comes flying from a high window... \n"
-        "It's the key! The thief flees their fortress, but you have what you came for! \n"
-        "Congratulations! The road was hard, but you successfully helped the Dwarves... \n"
-        "I suppose it's time to prepare to battle a Dragon... \n"
-    )
+    if "Bow & Arrow" in weapons:
+        slowprint(
+            "From your position in the back line, you aim high at the turret \n"
+            "archers. Your skill with the bow shines through, and together you \n"
+            "keep the other members of the group safe from airbourne attacks... \n"
+        )
+    else:
+        slowprint(
+            "You charge towards the emerging enemies with the Company, battle \n"
+            "cries ringing through the air..."
+            "You've done well so far, but this battle is much more difficult than \n"
+            "those you've faced so far. \n"
+            "The enemy attacks relentlessly, and you notice the Company's left flank \n"
+            "becoming overwhelmed... \n"
+            "Do you: \n"
+            "a) Move across to lend them a hand \n"
+            "b) Alert those around you of the growing struggle \n"
+            "c) Do nothing: you have your own enemies to worry about \n"
+        )
+        fbg_melee_choice = input(" ").lower()
+        if fbg_melee_choice == "a":
+            slowprint(
+                "A risky decision, however the rest of the Company is attacking strong \n"
+                "and your assistance on the left disrupts the enemies, forcing them to \n"
+                "fall back... \n"
+            )
+        elif fbg_melee_choice == "b":
+            slowprint(
+                "Somehow, your cry is heard over the turmoil. The Company shifts as a \n"
+                "whole to the left, overwhelming the enemy in turn. \n"
+            )
+        else:
+            slowprint(
+                "Doing nothing in battle is never a wise choice. \n"
+                "With the rest of the Company focussed on their immediate targets \n"
+                "nobody goes to the assistance of the left... \n"
+                "The enemy makes quick work of your teammates, before setting their \n"
+                "sights on the rest of you... \n"
+            )
+            game_over()
+
 
 def pre_fourth_battle():
     slowprint(
@@ -679,10 +724,19 @@ def pre_fourth_battle():
         fourth_battle_injured()
     elif "Cowardly" in inventory and "Orc Injury" and "Bear Injury" not in inventory:
         fourth_battle_cowardly()
-    elif "Sensible" in inventory and "Orc Injury" and "Bear Injury" not in inventory:
-        fourth_battle_sensible()
     else:
-        fourth_battle()
+        fourth_battle_good()
+
+def fourth_battle():
+    slowprint(
+        "The battle rages on, but it looks like you're winning! \n"
+        "Suddenly, a cry sounds from within, as the thief who owns \n"
+        "this fortress realises they have been beat. \n"
+        "As you defeat their army, something comes flying from a high window... \n"
+        "It's the key! The thief flees their fortress, but you have what you came for! \n"
+        "Congratulations! The road was hard, but you successfully helped the Dwarves... \n"
+        "I suppose it's time to prepare to battle a Dragon... \n"
+    )
 
 
 def choose_name():
@@ -710,8 +764,6 @@ def game_over():
 def main():
     about_game()
     play_game()
-    #start_game()
-    #exit_game()
     choose_name()
     weapon_choice()
     first_battle()
@@ -721,6 +773,7 @@ def main():
     third_battle()
     post_third_battle()
     pre_fourth_battle()
+    fourth_battle()
     game_over()
 
 
