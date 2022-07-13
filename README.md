@@ -73,7 +73,53 @@ I centered the Play Game button and the terminal for a more appealing web design
 
 ### **Header**
 
+The header is "The Hobbit Adventure Game" to inform the User of what the site is for.
 
+![Header](docs/header.png)
 
+### **Game Button**
+
+The default Run Program button from the Code Institute template was renamed and restyled to fit the page styling.
+
+![Game Button](docs/button.png)
+
+### **Terminal**
+
+The default terminal styling from the CI template was replaced with a centered terminal which sits below the Play Game button.
+
+![Terminal](docs/terminal.png)
+
+### **Instructions**
+
+The User is presented with a y/n input request after the game blurb asking whether they would like instructions.
+If the User selects `y`, they will be given instructions.
+These inform the user on the sort of questions and required response inputs they can expect, as well as encouraging them to think carefully about their responses.
+
+![Instructions](docs/game-start.png)
+
+### **Start Game Query**
+
+Following the instructions, the User is asked whether they would like to start the game or not. This allows for good UX as the User can choose whether to continue or not.
+
+![Start Game Query](docs/start-game-query.png)
+
+### **Name Selection**
+
+The name selection is the only open input in the game. I added the .capitalize() method so the User's name is capitalized, regardless of whether they added their own capital letter.
+
+![Name Selection](docs/name-selection.png)
+
+### **Weapon Selection**
+
+After choosing a name, the User is given the first proper game choice - choosing a weapon. This is also the first abcd choice. This will influence the dialogue trees presented to the User in the rest of the game.
+The User is given some information on their chosen weapon and informed that it has been added to their inventory.
+
+![Weapon Selection](docs/weapon-selection.png)
+
+### **First Battle**
+
+The first battle contains prerequisite dialogue before the User is presented with another abcd option. The success of this battle is based on which weapon was chosen - each option corresponds with only one weapon. If the User chooses incorrectly, they will sustain an injury, which is added to their inventory.
+
+![First Battle](docs/first-battle.png)
 
 

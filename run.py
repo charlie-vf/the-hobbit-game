@@ -40,6 +40,7 @@ def about_game():
     game_instructions = input("Would you like some instructions? y/n \n")
     if game_instructions == "y":
         slowprint(
+            "\n"
             "Throughout the game, you will be presented with a number of choices... \n"
             "Some will be ABCD - please type either a b c or d... \n"
             "Other choices will be yes/no (y/n)... \n"
@@ -53,6 +54,7 @@ def about_game():
         )
     else:
         slowprint(
+            "\n"
             "Okay!\n"
         )
 
