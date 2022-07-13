@@ -154,30 +154,44 @@ The first battle contains prerequisite dialogue before the User is presented wit
 
 Following this, the User is presented with another y/n option. Choosing correctly will progress the game, choosing incorrectly will result in a game over.
 
+![Post First Battle](docs/post-first-battle.png)
+
 ### **Second Battle**
 
 The second battle begins with dialogue dependent on whether an injury was sustained in the previous battle or not. After, the User is presented with a y/n option. The success of this battle is based on the weapon and injury-status of the User's character. Choosing incorrectly will result in a game over.
 
+![Second Battle](docs/second-battle.png)
+
 ### **Post Second Battle**
 
 This post-battle does not contain any input requirements for the User. If they chose incorrectly in the past two battles, the User will be reminded of their weapon and character's accumulated traits. If the User chose correctly in the past two battles, they will be informed of their current success.
+
+![Post Second Battle](docs/post-second-battle.png)
 
 ### **Third Battle**
 
 The third battle presents the User with another y/n response. There are two potential game over paths here, dependent on the User's choice of weapon and responses in this battle and the previous ones. 
 The User can acquire up to two negative traits and one positive trait.
 
+![Third Battle](docs/third-battle.png)
+
 ### **Post Third Battle**
 
 Before entering the final battle, the User is reminded of their characters weapon and any traits they have acquired along the way.
+
+![Post Third Battle](docs/post-third-battle.png)
 
 ### **Fourth Battle**
 
 The fourth, and final, battle has a number of paths dependent on how the User has faired so far. Regardless of path, the User will be presented with an abc response. The choice will either lead to victory, or a game over.
 
+![Fourth Battle](docs/fourth-battle.png)
+
 ### **Fourth Battle End**
 
 If the User survives the final battle, they will be congratulated, with the final line of dialogue hinting at more battles to come.
+
+![Fourth Battle End](docs/fourth-battle-end.png)
 
 ## **Testing & Validation**
 

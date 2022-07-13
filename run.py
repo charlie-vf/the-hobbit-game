@@ -101,16 +101,16 @@ def weapon_choice():
     if "a" in choose_weapon:
         slowprint(
             "Excellent choice!\n"
-            "You are given a dark-stained wood longbow.\n"
-            "Sometimes, attacking from afar is the best option.\n"
-            "Bow & Arrow was added to your inventory.\n"
+            "You are given a dark-stained wood longbow. \n"
+            "Sometimes, attacking from afar is the best option. \n"
+            "Bow & Arrow was added to your inventory. \n"
             )
         weapons = "Bow & Arrow"
         add_to_inventory("Bow & Arrow")
     elif "b" in choose_weapon:
         slowprint(
             "Excellent choice! \n"
-            "You are given a silver sword with intricate gold carving"
+            "You are given a silver sword with intricate gold carving \n"
             "and a matching shield. \n"
             "With these, you can defend and attack with ease. \n"
             "Sword & Shield was added to your inventory. \n"
@@ -497,7 +497,7 @@ def post_third_battle():
 
 def fourth_battle_injured():
     slowprint(
-        "You were injured in both of the past battles, so your track \n"
+        "You were injured in the past battles, so your track \n"
         "record isn't much to go on, but the Company believes in you, \n"
         "and so do I! \n"
     )
@@ -514,7 +514,7 @@ def fourth_battle_injured():
             "b) Assume one of the dagger-wielders is protecting the flank, \n"
             "c) Shout for the attention of the others, \n"
         )
-        fbsi_archer_choice = input("a, b or ? ")
+        fbsi_archer_choice = input("a, b or c? ")
         fbsi_archer_choice_wrong = "Looks like you're sitting out the rest of this battle...\n"
 
         if fbsi_archer_choice == "a":
