@@ -1,9 +1,3 @@
-Slowprint tutorial: https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python#:~:text=import%20random%20import%20sys%20import%20time%20def%20slowprint,between%20lines%20to%20add%20more%20dramatic%20effect.%20Share
-
-issues with if statements not rolling through properly
-e.g. not going all the way through to the correct option despite not having the item conditions for the statement it stopped on in inventory
-
-
 # The Hobbit Adventure Game
 
 The live website can be found [here](https://the-hobbit-mya-game.herokuapp.com/).
@@ -63,8 +57,9 @@ Dependent on the User's chosen weapon and subsequent choices in battles, a numbe
 - As a first time user, I want to easily understand what the site is for
 - As a first time user, I want to enjoy playing a text-based adventure game
 - As a first time user, I want to revisit the world of The Hobbit
-**
-### **Returning User Goals
+- As a first time user, I want to understand how the game works
+
+### **Returning User Goals**
 
 - As a returning user, I want to see if I can finish the game with fewer negative traits and game overs than before
 - As a returning user, I want to explore the different routes available in the game
@@ -193,7 +188,46 @@ If the User survives the final battle, they will be congratulated, with the fina
 
 ![Fourth Battle End](docs/fourth-battle-end.png)
 
+### **Game End**
+
+Following the final battle, the program will game over. The User has the option to try again, or to quit the game.
+
 ## **Testing & Validation**
+
+- I tested this game on various viewport sizes, both Mac and Windows, to ensure everything ran smoothly.
+    - This included the clear function in the game over function, which empties the terminal after the game over response is given.
+- Encountered various instances where if statements were not working correctly
+    - For the most part, this was due to trailing white spaces at the beginning of lines
+
+Passing the Python code through PEP8 returned no serious issues.
+However, it did return issues with line length - these were caused by nested if statements leading to longer lines due to indentation.
+I ensured the text fit the terminal window when the game is ran, with no words overlapping onto subsequent lines.
+
+The WRC Validator returned no issues for HTML or CSS:
+
+![HTML Validation](docs/html-validation.png)
+![CSS Validation](docs/css-validation.png)
+
+### **User Stories**
+
+- First Time Stories
+    - Upon entering the game, the purpose of the site is immediately presented to the User with the Game Title and welcome message
+    - The instructions option will inform the User of how the game works and what is expected of them
+    - The game uses familiar names and monsters from The Hobbit to immerse the User
+    - The game follows a steady pace so the User can easily follow along and enjoy the game
+
+- Returning Stories
+    - With previous knowledge, the User can follow different paths to see their outcomes
+    - With previous knowledge, the User can avoid certain negative outcomes and see if they can improve upon their last play
+    - The game is not too long, and the different paths avoid repetition, so the game remains interesting
+
+- Frequent Stories
+    - With solid knowledge on the game, the User can be confident in their ability to aim for a perfect run
+
+## **Credits**
+
+- The code for slowprint() was taken from stack overflow [here](https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python#:~:text=import%20random%20import%20sys%20import%20time%20def%20slowprint,between%20lines%20to%20add%20more%20dramatic%20effect.%20Share)
+
 
 
 

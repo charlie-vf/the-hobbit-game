@@ -18,6 +18,8 @@ COWARDLY_DIALOGUE = "You have gained the cowardly attribute. \n"
 FOOL_DIALOGUE = "You have gained the fool attribute. \n"
 
 # slowprint tutorial taken from Slack Overflow - info in ReadMe
+
+
 def slowprint(s):
     for c in s + '\n':
         sys.stdout.write(c)
@@ -357,6 +359,7 @@ def second_battle():
             "the other end around a nearby tree, you all safely reach the \n"
             "other side... \n\n"
         )
+
 
 def post_second_battle():
     if "Orc Injury" and "Cowardly" in inventory:
