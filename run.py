@@ -339,7 +339,7 @@ def second_battle():
             "Your weapon lands in the raging water, never to be seen again... \n"
             "Good job the Dwarves carry spares, eh? \n"
         )
-        f"{FOOL_DIALOGUE}"
+        slowprint(f"{FOOL_DIALOGUE}")
     elif second_battle_choice == "n" and "Bow & Arrow" in inventory and "Orc Injury" not in inventory:
         slowprint(
             "You know, sometimes you have to step up to the task. \n"

@@ -12,6 +12,32 @@ The live website can be found [here](https://the-hobbit-mya-game.herokuapp.com/)
 
 ## Table of Contents
 
+- [Purpose](#purpose)
+- [How to Play](#how-to-play)
+- [UX & Stories](#user-experience--stories)
+    - [User Goals](#user-goals)
+    - [Flowchart](#flowchart)
+    - [Design](#design)
+        - [Colors](#colors)
+        - [Font](#font)
+- [Features](#features)
+    - [Header](#header)
+    - [Game Button](#game-button)
+    - [Terminal](#terminal)
+    - [Instructions](#instructions)
+    - [Start Game Query](#start-game-query)
+    - [Name Selection](#name-selection)
+    - [Weapon Selection](#weapon-selection)
+    - [First Battle](#first-battle)
+    - [Post First Battle](#post-first-battle)
+    - [Second Battle](#second-battle)
+    - [Post Second Battle](#post-first-battle)
+    - [Third Battle](#third-battle)
+    - [Post Third Battle](#post-third-battle)
+    - [Fourth Battle](#fourth-battle)
+    - [Game End](#fourth-battle-end)
+- [Testing & Validation](#testing--validation)
+
 ## **Purpose**
 
 This Hobbit adventure game was created for anyone interested in Tolkien's world of Middle Earth and/or text-based old school games.
@@ -29,6 +55,8 @@ Dependent on the User's chosen weapon and subsequent choices in battles, a numbe
 
 
 ## **User Experience & Stories**
+
+### **User Goals**
 
 ### **First Time User Goals**
 
@@ -105,7 +133,7 @@ Following the instructions, the User is asked whether they would like to start t
 
 ### **Name Selection**
 
-The name selection is the only open input in the game. I added the .capitalize() method so the User's name is capitalized, regardless of whether they added their own capital letter.
+The name selection is the only open input in the game. I added the .capitalize() method so the User's name is capitalized, regardless of whether they added their own capital letter. Having a name selection allows for a more personalised experience for the User. 
 
 ![Name Selection](docs/name-selection.png)
 
@@ -121,5 +149,37 @@ The User is given some information on their chosen weapon and informed that it h
 The first battle contains prerequisite dialogue before the User is presented with another abcd option. The success of this battle is based on which weapon was chosen - each option corresponds with only one weapon. If the User chooses incorrectly, they will sustain an injury, which is added to their inventory.
 
 ![First Battle](docs/first-battle.png)
+
+### **Post First Battle**
+
+Following this, the User is presented with another y/n option. Choosing correctly will progress the game, choosing incorrectly will result in a game over.
+
+### **Second Battle**
+
+The second battle begins with dialogue dependent on whether an injury was sustained in the previous battle or not. After, the User is presented with a y/n option. The success of this battle is based on the weapon and injury-status of the User's character. Choosing incorrectly will result in a game over.
+
+### **Post Second Battle**
+
+This post-battle does not contain any input requirements for the User. If they chose incorrectly in the past two battles, the User will be reminded of their weapon and character's accumulated traits. If the User chose correctly in the past two battles, they will be informed of their current success.
+
+### **Third Battle**
+
+The third battle presents the User with another y/n response. There are two potential game over paths here, dependent on the User's choice of weapon and responses in this battle and the previous ones. 
+The User can acquire up to two negative traits and one positive trait.
+
+### **Post Third Battle**
+
+Before entering the final battle, the User is reminded of their characters weapon and any traits they have acquired along the way.
+
+### **Fourth Battle**
+
+The fourth, and final, battle has a number of paths dependent on how the User has faired so far. Regardless of path, the User will be presented with an abc response. The choice will either lead to victory, or a game over.
+
+### **Fourth Battle End**
+
+If the User survives the final battle, they will be congratulated, with the final line of dialogue hinting at more battles to come.
+
+## **Testing & Validation**
+
 
 
