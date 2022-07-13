@@ -5,6 +5,7 @@
 import sys
 import random
 import time
+import os
 
 inventory = []
 
@@ -761,13 +762,19 @@ def add_to_inventory(item):
     print(inventory)
 
 
+def clear_terminal():
+    os.system('clear')
+
+
 def game_over():
     slowprint("Game Over!\n")
     replay = input("Would you like to play again? y/n \n")
     if "y" in replay:
+        clear_terminal()
         main()
     else:
         slowprint("Okay! Good game!")
+        clear_terminal()
         sys.exit()
 
 
