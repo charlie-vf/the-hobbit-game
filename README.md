@@ -18,7 +18,19 @@ The live website can be found [here](https://the-hobbit-mya-game.herokuapp.com/)
 
 This Hobbit adventure game was created for anyone interested in Tolkien's world of Middle Earth and/or text-based old school games.
 
-## **User Stories**
+## **How to Play**
+
+Throughout this text-based game, the User will be presented with a number of choices. 
+Other than the name input, these will either be `y`/`n` or `a`/`b`/`c`/`d` choices.
+These are always validated by the terminal, and the User cannot continue until an accepted response is given. The User will be prompted to enter an accepted response if one is not entered. 
+The User is offered instructions before starting the game proper.
+
+![Game Instrucions](docs/instructions.png)
+
+Dependent on the User's chosen weapon and subsequent choices in battles, a number of traits can be collected. There are three negative and one positive trait. The negative traits will impact the outcome of various battles in a potentially detrimental way, whereas the positive traits (or absence of any traits) serve as a dialogue reward and make subsequent battles less likely to result in game over.
+
+
+## **User Experience & Stories**
 
 ### First Time User Goals
 
@@ -35,6 +47,12 @@ This Hobbit adventure game was created for anyone interested in Tolkien's world 
 
 - As a frequent user, I want to see if I can finish the game with no negative traits or game overs
 - As a frequent user, I want to see if any battle have been expanded, or new battles have been added
+
+### Flowchart
+
+I created a flowchart to lay out the direction of the game and what various overall choices would result in.
+
+![Flow Chart](docs/flowchart.png)
 
 
 

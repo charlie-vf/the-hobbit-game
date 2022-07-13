@@ -23,6 +23,7 @@ def slowprint(s):
         sys.stdout.flush() # defeat buffering
         time.sleep(random.random() * 0.1)
 
+
 def about_game():
 
     """
@@ -31,7 +32,7 @@ def about_game():
     slowprint(
         "Welcome to the Hobbit adventure game!\n"
         "The Dwarves of Erebor are in need of someone to join their quest.\n"
-        "They seek to reclaim the key to the Misty Mountain "
+        "They seek to reclaim the key to the Misty Mountain \n"
         "so they can take their home back from the dragon, Smaug... \n"
         "This adventure is not for the weak of heart.\n"
     )
@@ -134,7 +135,6 @@ def weapon_choice():
     else:
         print("Please choose either a, b, c or d.\n")
         weapon_choice()
-
 
 
 def first_battle():
@@ -252,6 +252,7 @@ def first_battle():
         slowprint("Please choose either a, b, c or d \n")
         first_battle()
 
+
 def post_first_battle():
     slowprint(
         "The three of you return to the others and tell of your encounter \n"
@@ -282,6 +283,7 @@ def post_first_battle():
     else:
         slowprint("Please choose either y or n. \n")
         post_first_battle()
+
 
 def second_battle():
     slowprint(
@@ -378,6 +380,7 @@ def post_second_battle():
         slowprint(
             "This is all going quite well...\n"
         )
+
 
 def third_battle():
     slowprint(
@@ -480,12 +483,14 @@ def third_battle():
         )
         third_battle()
 
+
 def post_third_battle():
     slowprint(
         "Things are certainly getting more dangerous... \n"
         f"Here's {name_input}'s weapon & traits so far: {', '.join(inventory)}"
         "\n"
     )
+
 
 def fourth_battle_injured():
     slowprint(
@@ -578,7 +583,6 @@ def fourth_battle_injured():
                 "is seriously injured and out of the battle. \n"
             )
             slowprint(fbsi_melee_choice_wrong)
-    fourth_battle()
 
 
 def fourth_battle_cowardly():
@@ -650,7 +654,6 @@ def fourth_battle_cowardly():
                 "is quickly overwhelmed... \n"
             )
             game_over()
-    fourth_battle()
 
 
 def fourth_battle_good():
@@ -727,14 +730,18 @@ def pre_fourth_battle():
     else:
         fourth_battle_good()
 
-def fourth_battle():
+
+def fourth_battle_end():
     slowprint(
         "The battle rages on, but it looks like you're winning! \n"
         "Suddenly, a cry sounds from within, as the thief who owns \n"
         "this fortress realises they have been beat. \n"
-        "As you defeat their army, something comes flying from a high window... \n"
-        "It's the key! The thief flees their fortress, but you have what you came for! \n"
-        "Congratulations! The road was hard, but you successfully helped the Dwarves... \n"
+        "As you defeat their army, something comes flying from a high "
+        "window... \n"
+        "It's the key! The thief flees their fortress, but you have what you "
+        "came for! \n"
+        "Congratulations! The road was hard, but you successfully helped the "
+        "Dwarves... \n"
         "I suppose it's time to prepare to battle a Dragon... \n"
     )
 
@@ -748,9 +755,11 @@ def choose_name():
 
     slowprint(f"\nWelcome to the company, {name_input}! \n")
 
+
 def add_to_inventory(item):
     inventory.append(item)
     print(inventory)
+
 
 def game_over():
     slowprint("Game Over!\n")
@@ -760,6 +769,7 @@ def game_over():
     else:
         slowprint("Okay! Good game!")
         sys.exit()
+
 
 def main():
     about_game()
@@ -773,7 +783,7 @@ def main():
     third_battle()
     post_third_battle()
     pre_fourth_battle()
-    fourth_battle()
+    fourth_battle_end()
     game_over()
 
 
