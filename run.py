@@ -61,11 +61,14 @@ def about_game():
             "times, the game will be over...\n"
             "Some responses will result in immediate game over... \n"
         )
-    else:
+    elif game_instructions == "n":
         slowprint(
             "\n"
             "Okay!\n"
         )
+    else:
+        yn_error()
+        about_game()
 
 
 def play_game():
@@ -82,7 +85,7 @@ def play_game():
         slowprint("\nOkay! Maybe another time...\n")
         game_over()
     else:
-        slowprint("\nPlease enter either y or n.\n")
+        yn_error()
         play_game()
 
 
@@ -146,7 +149,7 @@ def weapon_choice():
         WEAPONS = "Greatsword"
         add_to_inventory("Greatsword")
     else:
-        print("\nPlease choose either a, b, c or d.\n")
+        abcd_error()
         weapon_choice()
 
 
@@ -190,9 +193,9 @@ def first_battle():
     if "a" in first_battle_choice and "Sword & Shield" in inventory:
         slowprint(
             "\nYou ready a defensive stance in front of the Dwarves. \n"
-            "The Orc and Warg attack, but you successfully deflect them \n"
+            "The Orc and Warg attack, but you successfully deflect them "
             "with your shield. \n"
-            "Phew! That's two down, and the Dwarves have dealt \n"
+            "Phew! That's two down, and the Dwarves have dealt "
             "with the rest! \n"
         )
 
@@ -268,7 +271,7 @@ def first_battle():
         add_to_inventory("Orc Injury")
 
     else:
-        slowprint("Please choose either a, b, c or d \n")
+        abcd_error()
         first_battle()
     return inventory
 
@@ -306,7 +309,7 @@ def post_first_battle():
         game_over()
 
     else:
-        slowprint("Please choose either y or n. \n")
+        yn_error()
         post_first_battle()
 
 
@@ -394,9 +397,7 @@ def second_battle():
             "other side... \n\n"
         )
     else:
-        slowprint(
-            "Please choose either y or n \n"
-        )
+        yn_error()
         second_battle()
 
 
@@ -477,9 +478,7 @@ def third_battle_bow():
         )
         add_to_inventory("Bear Injury")
     else:
-        slowprint(
-            "Please choose either y or n \n"
-        )
+        yn_error()
         third_battle_bow()
 
 
@@ -505,9 +504,7 @@ def third_battle_daggers():
         )
         game_over()
     else:
-        slowprint(
-            "Please choose either y or n \n"
-        )
+        yn_error()
         third_battle_daggers()
 
 
@@ -558,12 +555,10 @@ def third_battle_sword_or_greatsword():
             slowprint(
                 "Your bravery is commendable, and rewarded! You land a "
                 "solid hit \non one of the bears and, between you, save "
-                "yourselves from \n this threat. \n"
+                "yourselves from \nthis threat. \n"
             )
     else:
-        slowprint(
-            "Please choose either y or n \n"
-        )
+        yn_error()
         third_battle_sword_or_greatsword()
 
 
@@ -659,9 +654,7 @@ def fourth_battle_injured():
                 "Good work! \n"
             )
         else:
-            slowprint(
-                "Please choose a, b or c \n"
-            )
+            abc_error()
             fourth_battle_injured()
 
     else:
@@ -710,9 +703,7 @@ def fourth_battle_injured():
             )
             slowprint(fbsi_melee_choice_wrong)
         else:
-            slowprint(
-                "Please choose a, b or c \n"
-            )
+            abc_error()
             fourth_battle_injured()
 
 
@@ -751,9 +742,8 @@ def fourth_battle_cowardly():
                 "turret archers to one \nman... \n"
             )
         else:
-            slowprint(
-                "Please choose either y or n \n"
-            )
+            yn_error()
+            fourth_battle_cowardly()
     else:
         slowprint(
             "Time to put that wariness aside and attack. \n"
@@ -800,9 +790,8 @@ def fourth_battle_cowardly():
             )
             game_over()
         else:
-            slowprint(
-                "Please choose either y or n \n"
-            )
+            yn_error()
+            fourth_battle_cowardly()
 
 
 def fourth_battle_good():
@@ -865,9 +854,8 @@ def fourth_battle_good():
             )
             game_over()
         else:
-            slowprint(
-                "Please choose either y or n \n"
-            )
+            yn_error()
+            fourth_battle_good()
 
 
 def pre_fourth_battle():
@@ -878,7 +866,7 @@ def pre_fourth_battle():
         "Finally after many gruelling days the company spots the \n"
         "Fortress only a couple leagues away. \n"
         "You're almost there! \n"
-        "Congratulations on making it this far! \n"
+        "Congratulations on making it this far! \n\n"
         "As you and the Company approach, the Fortress is still... \n"
         "Thorin, the leader, gestures to get into position... \n"
         "Suddenly, the front gates swing open and arrows rain down from \n"
@@ -932,6 +920,33 @@ def add_to_inventory(item):
     """
     inventory.append(item)
     print(inventory)
+
+
+def abc_error():
+    """
+    Reminds the user to choose an accepted option
+    """
+    slowprint(
+        "Please choose either a, b or c \n"
+    )
+
+
+def abcd_error():
+    """
+    Reminds the user to choose an accepted option
+    """
+    slowprint(
+        "Please choose either a, b, c or d \n"
+    )
+
+
+def yn_error():
+    """
+    Reminds the user to choose an accepted option
+    """
+    slowprint(
+        "Please choose either y or n \n"
+    )
 
 
 def clear_terminal():
