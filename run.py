@@ -211,11 +211,11 @@ def first_battle():
 
     elif "b" in first_battle_choice and "Greatsword" in inventory:
         slowprint(
-            "\nYou charge past the first Orc and Warg to the Orc \n"
+            "\nYou charge past the first Orc and Warg to the Orc "
             "in the middle. \n"
             "Letting loose a cry, you swing your greatsword "
             "down on the enemy. \n"
-            "Success! The Orc is severely wounded. It retreats \n"
+            "Success! The Orc is severely wounded. It retreats "
             "back into the forest. \n"
         )
 
@@ -820,8 +820,8 @@ def fourth_battle_good():
         )
     else:
         slowprint(
-            "Fuelled by the success of your previous battles, \n"
-            "you and the company attack strong, breezing through the enemy \n"
+            "Fuelled by the success of your previous battles, "
+            "you and the company attack \nstrong, breezing through the enemy "
             "and pushing forward to the front doors. \n"
         )
 
@@ -904,8 +904,8 @@ def fourth_battle_end():
     """
     slowprint(
         "The battle rages on, but it looks like you're winning! \n"
-        "Suddenly, a cry sounds from within, as the thief who owns \n"
-        "this fortress realises they have been beat. \n"
+        "Suddenly, a cry sounds from within, as the thief who owns "
+        "this fortress \nrealises they have been beat. \n"
         "As you defeat their army, something comes flying from a high "
         "window... \n"
         "It's the key! The thief flees their fortress, but you have what you "
