@@ -52,7 +52,7 @@ def slowprint(s):
     for c in s + '\n':
         sys.stdout.write(c)
         sys.stdout.flush()
-        time.sleep(random.random() * 0.1)
+        time.sleep(random.random() * 0.12)
 
 
 def about_game():
@@ -452,6 +452,7 @@ def third_battle_bow():
         "Do you take cover behind the others, or join those who are "
         "attacking? y/n\n"
         ).lower()
+
     if "y" in third_battle_choice:
         if YES_ORC and YES_COWARDLY:
             slowprint(

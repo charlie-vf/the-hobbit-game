@@ -201,7 +201,13 @@ Following the final battle, the program will game over. The User has the option 
 
 Passing the Python code through PEP8 returned no serious issues.
 However, it did return issues with line length - these were caused by nested if statements leading to longer lines due to indentation.
-I ensured the text fit the terminal window when the game is ran, with no words overlapping onto subsequent lines.
+This was fixed by changing the position of line breaks and paragraphing.
+
+Final PEP8 test returned two issues - both for the two global variables. Global variables necessary here, however.
+
+Presented issues when using constants over "x in x":
+- Alternated between the two where issues arose
+- Will look more into this so constants function properly throughout
 
 The WRC Validator returned no issues for HTML or CSS:
 
