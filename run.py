@@ -7,12 +7,11 @@ import time
 import os
 
 
+# CONSTS
+
 inventory = []
 WEAPONS = []
 NAME_INPUT = None
-
-
-# CONSTS
 
 INJURY_DIALOGUE = "You have sustained an injury. \n"
 

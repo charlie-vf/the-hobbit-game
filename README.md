@@ -32,7 +32,12 @@ The live website can be found [here](https://the-hobbit-mya-game.herokuapp.com/)
     - [Pre Fourth Battle](#pre-fourth-battle)
     - [Fourth Battle](#fourth-battle)
     - [Game End](#fourth-battle-end)
+    - [Incorrect Responses](#incorrect-responses)
+- [Technologies Used](#technologies-used)
 - [Testing & Validation](#testing--validation)
+    - [Manual Testing](#manual-testing)
+    - [User Stories](#user-stories)
+- [Credits](#credits)
 
 ## **Purpose**
 
@@ -205,6 +210,12 @@ If the User survives the final battle, they will be congratulated, with the fina
 Following the final battle, the program will game over. The User has the option to try again, or to quit the game. The terminal will clear after the response is given.
 If the User chooses to play again, their inventory will be emptied.
 
+### **Incorrect Responses**
+
+If the User gives a response other than what is expected, they will receive a message based on the type of input and be asked to respond again.
+
+![Incorrect Response](docs/incorrect-responses.png)
+
 ## **Technologies Used**
 
 - [Git](https://github.com/)
@@ -222,17 +233,21 @@ If the User chooses to play again, their inventory will be emptied.
     - Used on game_over function to exit game
 - [Time](https://docs.python.org/3/library/time.html)
     - Used for delay in slowprint function
+- [Random](https://docs.python.org/3/library/random.html)
+    - Used on slowprint function
+- [os](https://docs.python.org/3/library/os.html?highlight=os#module-os)
+    - Used to clear terminal
 
 ## **Testing & Validation**
 
 - Game tested on both Mac and Windows to ensure everything ran smoothly.
     - This included the clear function in the game over function, which empties the terminal after the game over response is given.
 - Game tested on Chrome, Safari & Firefox
-- Encountered various instances where if statements were not working correctly
+- Encountered various instances early on where if statements were not working correctly
     - For the most part, this was due to trailing white spaces at the beginning of lines
 
-Passing the Python code through PEP8 returned no serious issues.
-However, it did return issues with line length - these were caused by nested if statements leading to longer lines due to indentation.
+Passing the Python code through PEP8 returned no serious issues.  
+However, it did return issues with line length - these were caused by nested if statements leading to longer lines due to indentation.  
 This was fixed by changing the position of line breaks and paragraphing.
 
 Two linting errors present in code - both for the two global variables  
@@ -245,16 +260,17 @@ PEP8 online test returned no issues.
 ![PEP8 Test](docs/pep8-test.png)
 
 Presented issues when using constants over "x in x":  
-- Will look more into this so constants can be used to reduce repetition  
+- Will look more into this so constants can be used to reduce repetition.  
 
 The WRC Validator returned no issues for HTML or CSS:
 
 ![HTML Validation](docs/html-validation.png)
 ![CSS Validation](docs/css-validation.png)
 
-### Manual Testing
+### **Manual Testing**
 
 Game tested continuously by running through various options and responses (both correct and incorrect) to ensure User receives correct pathways and dialogue responses.  
+Ensured game over functioned correctly and cleared terminal (& inventory if replaying).  
 
 ### **User Stories**
 
@@ -286,9 +302,30 @@ Game tested continuously by running through various options and responses (both 
 *As a frequent user, I want to see if I can finish the game with no negative traits or game overs*  
     - With solid knowledge on the game, the User can be confident in their ability to aim for a perfect run  
 
+## **Deployment**
+
+This project was deployed using Heroku.  
+
+Steps to deploy:
+- Create or login to Heroku account
+- Fork or clone this repository
+    - In GitHub, locate the [repository](https://github.com/charlie-vf/the-hobbit-game) and click 'Fork' in the top right
+    - This will create a copy of the repo in your account
+- Click new in top right and selected 'new app' from dropdown
+- Give your app a name and click 'Create'
+- Navigate to settings and select 'buildpacks'
+- Add python and node.js, ensuring they are displayed in that order (python above)
+- Navigate to 'Deploy'
+- Navigate to 'Deployment Method' and connect to GitHub account
+- Search for your GitHub repository and connect it
+- Choose either Automatic or Manual deployment (Automatic will work inline with pushes from GitHub)
+- Ensure 'branch to deploy' is master/main
+- Hit deploy
+
 ## **Credits**
 
 - The code for slowprint() was taken from stack overflow [here](https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python#:~:text=import%20random%20import%20sys%20import%20time%20def%20slowprint,between%20lines%20to%20add%20more%20dramatic%20effect.%20Share) with the time altered to be slightly slower
+- My tutor, Brian Macchiara, for continued support and good chats
 
 
 
