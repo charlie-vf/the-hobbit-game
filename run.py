@@ -984,9 +984,7 @@ def game_over():
     if "y" in replay:
         clear_terminal()
         inventory.clear()
-        slowprint(
-            "Please click 'Play Game' to go again.\n"
-        )
+        main()
     else:
         slowprint("Okay! Good game!")
         clear_terminal()
@@ -996,7 +994,7 @@ def game_over():
 
 def main():
     """
-    Holds all game functions to run in order
+    Holds all main game functions to run in order
     """
     about_game()
     play_game()
