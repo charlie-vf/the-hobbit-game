@@ -279,7 +279,7 @@ The WRC Validator returned no issues for HTML or CSS:
 ### **Manual Testing**
 
 - Game tested continuously by running through various options and responses (both correct and incorrect) to ensure User receives correct pathways and dialogue responses.  
-- Ensured game over functioned correctly.  
+- Ensured game over functioned correctly, including clear_terminal function. 
 - print(inventory) used before final deployment to check inventory was updating accurately.  
 
 ### **User Stories**
@@ -314,7 +314,7 @@ The WRC Validator returned no issues for HTML or CSS:
 
 ## **Future Implementations**
 
-- os.system('clear') only applicable to Gitpod bash - will research further if there is a similar method for clearing the deployed terminal
+- os.system('clear') sometimes doesn't work - unsure if this is a genuine issue with a fix
 
 - Imagery and further styling to be added to enhance UX
 

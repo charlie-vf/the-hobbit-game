@@ -966,7 +966,6 @@ def yn_error():
 def clear_terminal():
     """
     Clears the terminal - used in game_over function
-    This only works in the GitPod bash, not the deployed site.
     """
     os.system('clear')
 
@@ -976,8 +975,7 @@ def game_over():
     Runs game over after losing/finishing the game.
     Player input to retry or quit game.
     Inventory emptied if player chooses to replay.
-    Print statement added to "y" in replay option as this will clear
-    the screen.
+    Clears terminal after input.
     """
     slowprint("Game Over!\n")
     replay = input("Would you like to play again? y/n \n")
@@ -987,8 +985,6 @@ def game_over():
         main()
     else:
         slowprint("Okay! Good game!")
-        clear_terminal()
-        inventory.clear()
         sys.exit()
 
 
