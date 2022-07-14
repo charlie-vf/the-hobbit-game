@@ -160,7 +160,7 @@ def first_battle():
         "After travelling through torrential rain, you and the Dwarves \n"
         "stumble across a run-down farm building. Here, you decide to \n"
         "take shelter for the night. \n"
-        "You join two of the Dwarves, Dwalin and Bifur, to hunt \n"
+        "You join two of the Dwarves, Dwalin and Bifur, to hunt "
         "for firewood. \n"
     )
 
@@ -600,7 +600,7 @@ def post_third_battle():
     Reminds player of character's name & accumulated inventory traits
     """
     slowprint(
-        "Things are certainly getting more dangerous... \n"
+        "Things are certainly getting more dangerous... \n\n"
         f"Here's {NAME_INPUT}'s weapon & traits so far: {', '.join(inventory)}"
         "\n"
     )
@@ -612,7 +612,7 @@ def fourth_battle_injured():
     """
     slowprint(
         "You were injured in the past battles, so your track \n"
-        "record isn't much to go on, but the Company believes in you, \n"
+        "record isn't much to go on, but the Company believes in you, "
         "and so do I! \n"
     )
     if "Bow & Arrow" in inventory:
@@ -622,13 +622,13 @@ def fourth_battle_injured():
             "The others loose a battle cry and charge towards the gates \n"
             "as you loose your arrows at the enemy archers. \n"
             "Suddenly, you spot an enemy coming round from the side of the \n"
-            "fortress towards your group."
+            "fortress towards your group.\n"
             "Do you: \n"
             "a) Turn your weapon towards them and fire, \n"
             "b) Assume one of the dagger-wielders is protecting the flank, \n"
             "c) Shout for the attention of the others, \n"
         )
-        fbsi_archer_choice = input("a, b or c? ")
+        fbsi_archer_choice = input("")
         fbsi_archer_choice_wrong = (
             "Looks like you're sitting out the rest of "
             "this battle...\n"
@@ -641,7 +641,7 @@ def fourth_battle_injured():
                 "But it's okay, Kili noticed your attempt and lands his own "
                 "shot! \n"
                 "However, you left yourself exposed, and a turret archer "
-                "looses an arrow before \n you can react. \n"
+                "looses an arrow before \nyou can react. \n"
                 "It's not a lethal hit, but you're not going to be much use, "
                 "now. \n"
             )
@@ -674,10 +674,10 @@ def fourth_battle_injured():
     else:
         slowprint(
             "Well, best of luck to you. \n"
-            "Together with the other melee users, you charge through the \n"
-            "gates towards the emerging enemies. \n"
+            "Together with the other melee users, you charge through the "
+            "gates towards the \nemerging enemies. \n"
             "The battle is loud and violent, the sounds of blades ringing "
-            "throughout the space.\n"
+            "throughout the \nspace.\n"
             "You notice three enemies attempting to push past to the archers "
             "at the back... \n"
             "Do you: \n"
@@ -688,8 +688,8 @@ def fourth_battle_injured():
         )
         fbsi_melee_choice = input("").lower()
         fbsi_melee_choice_wrong = (
-            "Sometimes you need to take intiative. "
-            "After \nall, your company is very small, you can't afford to "
+            "Sometimes you need to take intiative. \n"
+            "After all, your company is very small, you can't afford to "
             "lose anyone."
         )
 
@@ -697,14 +697,14 @@ def fourth_battle_injured():
             slowprint(
                 "\nYou made a difficult decision in the heat of battle, \n"
                 "thankfully, it pays off, and you prevent the enemies from "
-                "moving past, forcing them back into the fray. \n"
+                "moving past, \nforcing them back into the fray. \n"
                 "Good job! \n"
             )
         elif fbsi_melee_choice == "b":
             slowprint(
                 "\nI'm sure you can shout loudly, but not that loudly. \n"
-                "Nobody hears you, and the enemies rush past, taking out \n"
-                "your archers before the other can stop them. \n"
+                "Nobody hears you, and the enemies rush past, taking out "
+                "your archers \nbefore the other can stop them. \n"
                 "With no ranged defence, the Company is quickly "
                 "overwhelmed... \n"
             )
@@ -712,8 +712,8 @@ def fourth_battle_injured():
         elif fbsi_melee_choice == "c":
             slowprint(
                 "\nThis was a gamble. Balin spots the rebellious trio \n"
-                "and attempts to prevent them from attacking. Unfortunately, "
-                "he is seriously \ninjured and out of the battle. \n"
+                "and attempts to prevent them from attacking. \nUnfortunately,"
+                " he is seriously \ninjured and out of the battle. \n"
             )
             slowprint(fbsi_melee_choice_wrong)
         else:
@@ -734,7 +734,7 @@ def fourth_battle_cowardly():
             "You join the other archers in targetting those on the "
             "turrets... \n"
             "Together you make quick work of them, however you spot an enemy "
-            "sneaking towards you, blades ready. \n"
+            "sneaking \ntowards you, blades ready. \n"
             "The others haven't spotted them, yet... \n"
             "Do you attack? Or hope someone else sees them and takes "
             "the lead? y/n \n"
@@ -743,8 +743,8 @@ def fourth_battle_cowardly():
         if fbc_archer_choice == "y":
             slowprint(
                 "\nLook at you, stepping up to the job! You ready an arrow... "
-                "fire... and land a hit!\n"
-                "Well done, you saved your trio from potentially "
+                "fire... \nand land a hit!\n"
+                "Well done, you saved your trio from potential "
                 "assassination.\n"
             )
         elif fbc_archer_choice == "n":
@@ -966,24 +966,31 @@ def yn_error():
 def clear_terminal():
     """
     Clears the terminal - used in game_over function
+    This only works in the GitPod bash, not the deployed site.
     """
     os.system('clear')
 
 
 def game_over():
     """
-    Runs game over after losing/finishing the game
-    Player input to retry or quit game
+    Runs game over after losing/finishing the game.
+    Player input to retry or quit game.
+    Inventory emptied if player chooses to replay.
+    Print statement added to "y" in replay option as this will clear
+    the screen.
     """
     slowprint("Game Over!\n")
     replay = input("Would you like to play again? y/n \n")
     if "y" in replay:
         clear_terminal()
         inventory.clear()
-        main()
+        slowprint(
+            "Please click 'Play Game' to go again.\n"
+        )
     else:
         slowprint("Okay! Good game!")
         clear_terminal()
+        inventory.clear()
         sys.exit()
 
 

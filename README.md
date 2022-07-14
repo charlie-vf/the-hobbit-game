@@ -37,6 +37,8 @@ The live website can be found [here](https://the-hobbit-mya-game.herokuapp.com/)
 - [Testing & Validation](#testing--validation)
     - [Manual Testing](#manual-testing)
     - [User Stories](#user-stories)
+- [Future Implementations](#future-implementations)
+- [Deployment](#deployment)
 - [Credits](#credits)
 
 ## **Purpose**
@@ -211,16 +213,20 @@ If the User survives the final battle, they will be congratulated, with the fina
 
 ### **Game End**
 
-Following the final battle, the program will game over. The User has the option to try again, or to quit the game. The terminal will clear after the response is given.
+Following the final battle, the program will game over. The User has the option to try again, or to quit the game.  
 If the User chooses to play again, their inventory will be emptied.
 
 ### **Incorrect Responses**
 
-If the User gives a response other than what is expected, they will receive a message based on the type of input and be asked to respond again.
+If the User gives a response other than what is expected, they will receive a message based on the style of input and be asked to respond again.
 
 ![Incorrect Response](docs/incorrect-responses.png)
 
 ## **Technologies Used**
+
+- [Python](https://www.python.org)
+- [HTML5](https://html.com/html5)
+- [CSS](https://en.wikipedia.org/wiki/CSS)
 
 - [Git](https://github.com/)
     - Used for version control through GitPod terminal with commits to GitHub and pushes to GitHub & Heroku
@@ -245,14 +251,13 @@ If the User gives a response other than what is expected, they will receive a me
 ## **Testing & Validation**
 
 - Game tested on both Mac and Windows to ensure everything ran smoothly.
-    - This included the clear function in the game over function, which empties the terminal after the game over response is given.
-- Game tested on Chrome, Safari & Firefox
+- Game tested on Chrome, Safari & Firefox.
 - Encountered various instances early on where if statements were not working correctly
-    - For the most part, this was due to trailing white spaces at the beginning of lines
+    - For the most part, this was due to trailing white spaces at the beginning of lines.
 
-Passing the Python code through PEP8 returned no serious issues.  
+Early on, passing the Python code through PEP8 returned no serious issues.  
 However, it did return issues with line length - these were caused by nested if statements leading to longer lines due to indentation.  
-This was fixed by changing the position of line breaks and paragraphing.
+This was fixed by changing the position of line breaks and paragraphing.  
 
 Two linting errors present in code - both for the two global variables  
 NAME_INPUT and  
@@ -263,7 +268,7 @@ PEP8 online test returned no issues.
 
 ![PEP8 Test](docs/pep8-test.png)
 
-Presented issues when using constants over "x in x":  
+Presented issues when using constants over "x in y":  
 - Will look more into this so constants can be used to reduce repetition.  
 
 The WRC Validator returned no issues for HTML or CSS:
@@ -273,9 +278,9 @@ The WRC Validator returned no issues for HTML or CSS:
 
 ### **Manual Testing**
 
-Game tested continuously by running through various options and responses (both correct and incorrect) to ensure User receives correct pathways and dialogue responses.  
-Ensured game over functioned correctly and cleared terminal (& inventory if replaying).  
-print(inventory) used before final deployment to check inventory was updating accurately.  
+- Game tested continuously by running through various options and responses (both correct and incorrect) to ensure User receives correct pathways and dialogue responses.  
+- Ensured game over functioned correctly.  
+- print(inventory) used before final deployment to check inventory was updating accurately.  
 
 ### **User Stories**
 
@@ -307,6 +312,14 @@ print(inventory) used before final deployment to check inventory was updating ac
 *As a frequent user, I want to see if I can finish the game with no negative traits or game overs*  
     - With solid knowledge on the game, the User can be confident in their ability to aim for a perfect run  
 
+## **Future Implementations**
+
+- os.system('clear') only applicable to Gitpod bash - will research further if there is a similar method for clearing the deployed terminal
+
+- Imagery and further styling to be added to enhance UX
+
+- Option to end game at any stage, improving UX
+
 ## **Deployment**
 
 This project was deployed using Heroku.  
@@ -316,7 +329,7 @@ Steps to deploy:
 - Fork or clone this repository
     - In GitHub, locate the [repository](https://github.com/charlie-vf/the-hobbit-game) and click 'Fork' in the top right
     - This will create a copy of the repo in your account
-- Click new in top right and selected 'new app' from dropdown
+- In Heroku, click 'new' in the top right and select 'new app' from the dropdown
 - Give your app a name and click 'Create'
 - Navigate to settings and select 'buildpacks'
 - Add python and node.js, ensuring they are displayed in that order (python above)
@@ -330,6 +343,7 @@ Steps to deploy:
 ## **Credits**
 
 - The code for slowprint() was taken from stack overflow [here](https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python#:~:text=import%20random%20import%20sys%20import%20time%20def%20slowprint,between%20lines%20to%20add%20more%20dramatic%20effect.%20Share) with the time altered to be slightly slower
+
 - My tutor, Brian Macchiara, for continued support and good chats
 
 
