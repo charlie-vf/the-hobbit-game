@@ -2,6 +2,8 @@
 
 The live website can be found [here](https://the-hobbit-mya-game.herokuapp.com/).
 
+This game is mostly targetted to fans of Tolkien's The Hobbit, however it can be enjoyed by anyone who wants to play a text-based make-your-own-adventure game.
+
 <br>
 
 ## Table of Contents
@@ -215,7 +217,7 @@ If the User survives the final battle, they will be congratulated, with the fina
 
 Following the final battle, the program will game over. The User has the option to try again, or to quit the game.  
 If the User chooses to play again, their inventory will be emptied.
-The clear_terminal function rolls the text up to the top of the screen so it looks tidy for the User to replay the game.
+The clear_terminal function empties the terminal so it is tidy for the User to play again.
 
 ![Game Over](docs/game-over.png)
 
@@ -317,7 +319,7 @@ The WRC Validator returned no issues for HTML or CSS:
 
 ## **Future Implementations**
 
-- os.system('clear') only applicable to Gitpod bash - will research further if there is a similar method for clearing the deployed terminal
+- os.system('clear') doesn't always clear the terminal - will research further 
 
 - Imagery and further styling to be added to enhance UX
 

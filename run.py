@@ -39,7 +39,7 @@ def about_game():
     Welcome message and option for instructions
     """
     slowprint(
-        "Welcome to the Hobbit adventure game!\n"
+        "Welcome to The Hobbit Adventure Game!\n"
         "The Dwarves of Erebor are in need of someone to join their quest.\n"
         "They seek to reclaim the key to the Misty Mountain "
         "so they can take their home \nback from the dragon, Smaug... \n"
@@ -978,7 +978,7 @@ def game_over():
     Runs game over after losing/finishing the game.
     Player input to retry or quit game.
     Inventory emptied if player chooses to replay.
-    clear_terminal serves to roll text back to the top of the screen.
+    clear_terminal keeps screen tidy after game over.
     """
     slowprint("Game Over!\n")
     replay = input("Would you like to play again? y/n \n")
