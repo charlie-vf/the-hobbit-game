@@ -568,8 +568,8 @@ def third_battle_sword_or_greatsword():
         else:
             slowprint(
                 "\nYour bravery is commendable, and rewarded! You land a "
-                "solid hit \non one of the bears and, between you, save "
-                "yourselves from \nthis threat. \n"
+                "solid hit on \none of the bears and, between you, save "
+                "yourselves from this threat. \n"
             )
     else:
         yn_error()
@@ -925,7 +925,11 @@ def choose_name():
         "Please choose a name for your character: "
     ).capitalize()
 
-    slowprint(f"\nWelcome to the company, {NAME_INPUT}! \n")
+    slowprint(
+        "\n"
+        f"Welcome to the Company, {NAME_INPUT}!"
+        "\n"
+    )
 
 
 def add_to_inventory(item):
@@ -933,7 +937,6 @@ def add_to_inventory(item):
     Holds data for player inventory
     """
     inventory.append(item)
-    print(inventory)
 
 
 def abc_error():
@@ -975,7 +978,7 @@ def game_over():
     Runs game over after losing/finishing the game.
     Player input to retry or quit game.
     Inventory emptied if player chooses to replay.
-    Clears terminal after input.
+    clear_terminal serves to roll text back to the top of the screen.
     """
     slowprint("Game Over!\n")
     replay = input("Would you like to play again? y/n \n")
@@ -985,6 +988,7 @@ def game_over():
         main()
     else:
         slowprint("Okay! Good game!")
+        clear_terminal()
         sys.exit()
 
 

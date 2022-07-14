@@ -129,7 +129,7 @@ The User is presented with a y/n input request after the game blurb asking wheth
 If the User selects `y`, they will be given instructions.
 These inform the user on the sort of questions and required response inputs they can expect, as well as encouraging them to think carefully about their responses.
 
-![Instructions](docs/game-start.png)
+![Instructions](docs/instructions.png)
 
 ### **Start Game Query**
 
@@ -215,6 +215,9 @@ If the User survives the final battle, they will be congratulated, with the fina
 
 Following the final battle, the program will game over. The User has the option to try again, or to quit the game.  
 If the User chooses to play again, their inventory will be emptied.
+The clear_terminal function rolls the text up to the top of the screen so it looks tidy for the User to replay the game.
+
+![Game Over](docs/game-over.png)
 
 ### **Incorrect Responses**
 
@@ -253,23 +256,23 @@ If the User gives a response other than what is expected, they will receive a me
 - Game tested on both Mac and Windows to ensure everything ran smoothly.
 - Game tested on Chrome, Safari & Firefox.
 - Encountered various instances early on where if statements were not working correctly
-    - For the most part, this was due to trailing white spaces at the beginning of lines.
+    - For the most part, this was due to trailing white spaces at the beginning of lines. Once removed, if statements worked correctly.    
 
-Early on, passing the Python code through PEP8 returned no serious issues.  
-However, it did return issues with line length - these were caused by nested if statements leading to longer lines due to indentation.  
-This was fixed by changing the position of line breaks and paragraphing.  
+- Early on, passing the Python code through PEP8 returned issues with line length - these were caused by nested if statements leading to longer lines due to indentation.  
+    - This was fixed by changing the position of line breaks in print statements.    
 
-Two linting errors present in code - both for the two global variables  
+- Two linting errors present in code - both for the two global variables  
 NAME_INPUT and  
 WEAPONS  
 No fix found at this stage, but will research further.  
 
+- Presented issues when using constants over "x in y":  
+    - Will look more into this so constants can be used to reduce repetition. 
+    - Was fixed by researching multi-line if conditions and implementing those.   
+
 PEP8 online test returned no issues.
 
 ![PEP8 Test](docs/pep8-test.png)
-
-Presented issues when using constants over "x in y":  
-- Will look more into this so constants can be used to reduce repetition.  
 
 The WRC Validator returned no issues for HTML or CSS:
 
@@ -279,7 +282,7 @@ The WRC Validator returned no issues for HTML or CSS:
 ### **Manual Testing**
 
 - Game tested continuously by running through various options and responses (both correct and incorrect) to ensure User receives correct pathways and dialogue responses.  
-- Ensured game over functioned correctly, including clear_terminal function. 
+- Ensured game over functioned correctly.  
 - print(inventory) used before final deployment to check inventory was updating accurately.  
 
 ### **User Stories**
@@ -314,7 +317,7 @@ The WRC Validator returned no issues for HTML or CSS:
 
 ## **Future Implementations**
 
-- os.system('clear') sometimes doesn't work - unsure if this is a genuine issue with a fix
+- os.system('clear') only applicable to Gitpod bash - will research further if there is a similar method for clearing the deployed terminal
 
 - Imagery and further styling to be added to enhance UX
 
@@ -325,11 +328,12 @@ The WRC Validator returned no issues for HTML or CSS:
 This project was deployed using Heroku.  
 
 Steps to deploy:
-- Create or login to Heroku account
+
 - Fork or clone this repository
     - In GitHub, locate the [repository](https://github.com/charlie-vf/the-hobbit-game) and click 'Fork' in the top right
     - This will create a copy of the repo in your account
-- In Heroku, click 'new' in the top right and select 'new app' from the dropdown
+- Create or login to Heroku account
+- Click 'new' in the top right and select 'new app' from the dropdown
 - Give your app a name and click 'Create'
 - Navigate to settings and select 'buildpacks'
 - Add python and node.js, ensuring they are displayed in that order (python above)
