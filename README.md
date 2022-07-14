@@ -163,6 +163,10 @@ This post-battle does not contain any input requirements for the User. If they c
 
 ![Post Second Battle](docs/post-second-battle.png)
 
+### ** Pre Third Battle**
+
+This runs dialogue about the battle that is about to happen, and allocates the User to one of three Third Battle trees dependent on their chosen weapon
+
 ### **Third Battle**
 
 The third battle presents the User with another y/n response. There are two potential game over paths here, dependent on the User's choice of weapon and responses in this battle and the previous ones. 
@@ -175,6 +179,10 @@ The User can acquire up to two negative traits and one positive trait.
 Before entering the final battle, the User is reminded of their characters weapon and any traits they have acquired along the way.
 
 ![Post Third Battle](docs/post-third-battle.png)
+
+### ** Pre Fourth Battle**
+
+This runs dialogue about the final battle, congratulates the player on making it this far, and allocates them to a Fourth Battle path dependent on which traits (if any) have been acquired so far.
 
 ### **Fourth Battle**
 
@@ -190,7 +198,7 @@ If the User survives the final battle, they will be congratulated, with the fina
 
 ### **Game End**
 
-Following the final battle, the program will game over. The User has the option to try again, or to quit the game.
+Following the final battle, the program will game over. The User has the option to try again, or to quit the game. The terminal will clear after the response is given.
 
 ## **Testing & Validation**
 
@@ -206,8 +214,7 @@ This was fixed by changing the position of line breaks and paragraphing.
 Final PEP8 test returned two issues - both for the two global variables. Global variables necessary here, however.
 
 Presented issues when using constants over "x in x":
-- Alternated between the two where issues arose
-- Will look more into this so constants function properly throughout
+- Will look more into this so constants can be used to reduce repetition
 
 The WRC Validator returned no issues for HTML or CSS:
 
