@@ -41,8 +41,8 @@ def about_game():
     slowprint(
         "Welcome to the Hobbit adventure game!\n"
         "The Dwarves of Erebor are in need of someone to join their quest.\n"
-        "They seek to reclaim the key to the Misty Mountain \n"
-        "so they can take their home back from the dragon, Smaug... \n"
+        "They seek to reclaim the key to the Misty Mountain "
+        "so they can take their home \nback from the dragon, Smaug... \n"
         "This adventure is not for the weak of heart.\n"
     )
     game_instructions = input("Would you like some instructions? y/n \n")
@@ -55,8 +55,7 @@ def about_game():
             "Other choices will be yes/no (y/n)... \n"
             "y will always refer to the first choice presented... \n"
             "n will always refer to the second choice presented... \n"
-            "Read the content carefully, and make decisions based on "
-            "previous answers...\n"
+            "Read the content carefully... \n"
             "You have three health points. If you choose poorly three \n"
             "times, the game will be over...\n"
             "Some responses will result in immediate game over... \n"
@@ -334,8 +333,9 @@ def second_battle():
         "You continue along the path, but are soon stopped by a powerfully "
         "flowing \nriver. \n"
         "In your packs, you each carry a bundle of rope. \n"
-        "One of the Dwarves points out a large tree which could be used "
-        "to affix the \nrope, allowing you all to move across. \n"
+        "One of the Dwarves points out a large tree across the river which "
+        "could be used \nto affix the rope, allowing you all to move across."
+        "\n"
         "Somebody with an accurate and strong shot is needed, here... \n"
     )
     second_battle_choice = input(
@@ -376,6 +376,16 @@ def second_battle():
             "Good job the Dwarves carry spares, eh? \n"
         )
         slowprint(f"{FOOL_DIALOGUE}")
+    elif (
+            "n" in second_battle_choice and
+            "Bow & Arrow" in inventory and
+            "Orc Injury" in inventory):
+        slowprint(
+            "It was a wise decision to let an uninjured archer try this...\n"
+            "Kili successfully lands an arrow in the tree and, after tying "
+            "the other end \naround a nearby tree, you all safely reach the "
+            "other side... \n\n"
+        )
     elif (
             "n" in second_battle_choice and
             "Bow & Arrow" in inventory and

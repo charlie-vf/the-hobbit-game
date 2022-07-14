@@ -275,6 +275,7 @@ The WRC Validator returned no issues for HTML or CSS:
 
 Game tested continuously by running through various options and responses (both correct and incorrect) to ensure User receives correct pathways and dialogue responses.  
 Ensured game over functioned correctly and cleared terminal (& inventory if replaying).  
+print(inventory) used before final deployment to check inventory was updating accurately.  
 
 ### **User Stories**
 
