@@ -174,7 +174,9 @@ This post-battle does not contain any input requirements for the User. If they c
 
 ### **Pre Third Battle**
 
-This runs dialogue about the battle that is about to happen, and allocates the User to one of three Third Battle trees dependent on their chosen weapon
+This runs dialogue about the battle that is about to happen, and allocates the User to one of three Third Battle trees dependent on their chosen weapon.
+
+![Pre Third Battle](docs/pre-third-battle.png)
 
 ### **Third Battle**
 
@@ -192,6 +194,8 @@ Before entering the final battle, the User is reminded of their characters weapo
 ### **Pre Fourth Battle**
 
 This runs dialogue about the final battle, congratulates the player on making it this far, and allocates them to a Fourth Battle path dependent on which traits (if any) have been acquired so far.
+
+![Pre Fourth Battle](docs/pre-fourth-battle.png)
 
 ### **Fourth Battle**
 

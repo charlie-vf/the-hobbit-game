@@ -326,7 +326,7 @@ def second_battle():
         )
     else:
         slowprint(
-            "Perhaps this adventuring business isn't so difficult, \n"
+            "Perhaps this adventuring business isn't so difficult, "
             "after all. \n"
         )
 
@@ -371,7 +371,7 @@ def second_battle():
             "\nInteresting, do you plan to hurl your blade across the river "
             "at the tree? \n"
             "Needless to say, that doesn't work. \n"
-            "Your weapon lands in the raging water, never to be seen \n"
+            "Your weapon lands in the raging water, never to be seen "
             "again... \n"
             "Good job the Dwarves carry spares, eh? \n"
         )
@@ -445,6 +445,7 @@ def third_battle_bow():
     if "y" in third_battle_choice:
         if "Orc Injury" in inventory and "Cowardly" in inventory:
             slowprint(
+                "\n"
                 f"Wise decision. Your {WEAPONS} is best suited to ranged "
                 "\n"
                 "combat, and your injury means you should avoid the heat "
@@ -456,6 +457,7 @@ def third_battle_bow():
             inventory.remove("Cowardly")
         elif "Cowardly" in inventory:
             slowprint(
+                "\n"
                 f"Wise decision. Your {WEAPONS} is best suited to ranged "
                 "combat. \n"
                 "You may be a bit cowardly, but you're also sensible. \n"
@@ -465,12 +467,13 @@ def third_battle_bow():
             inventory.remove("Cowardly")
         else:
             slowprint(
+                "\n"
                 f"Wise decision. Your {WEAPONS} is best suited to ranged "
                 "combat. \n"
             )
     elif "n" in third_battle_choice:
         slowprint(
-            "Well, I'm sure you've made better decisions in your life... "
+            "\nWell, I'm sure you've made better decisions in your life... "
             "\n"
             "Before you can even notch an arrow, you're down for the "
             "count \n"
@@ -493,12 +496,12 @@ def third_battle_daggers():
         ).lower()
     if "y" in third_battle_choice:
         slowprint(
-            "Yeah, Daggers probably wouldn't have helped out much, here. "
+            "\nYeah, Daggers probably wouldn't have helped out much, here. "
             "\n"
         )
     elif "n" in third_battle_choice:
         slowprint(
-            "What's that saying about bringing knives to a gun fight...? "
+            "\nWhat's that saying about bringing knives to a gun fight...? "
             "\n"
             "This may be a bear fight, but the same principles apply... \n"
         )
@@ -520,6 +523,7 @@ def third_battle_sword_or_greatsword():
     if "y" in third_battle_choice:
         if "Orc Injury" in inventory:
             slowprint(
+                "\n"
                 f"Wise decision. Your {WEAPONS} is suited for this type "
                 "of combat, \n"
                 "however your injury would likely have got you in "
@@ -529,7 +533,7 @@ def third_battle_sword_or_greatsword():
             add_to_inventory("Sensible")
         else:
             slowprint(
-                "Come on, now. What's the point in choosing the upfront \n"
+                "\nCome on, now. What's the point in choosing the upfront \n"
                 "weapons if you're just going to hide at the back? \n"
                 f"{COWARDLY_DIALOGUE}"
                 )
@@ -537,7 +541,7 @@ def third_battle_sword_or_greatsword():
     elif "n" in third_battle_choice:
         if "Orc Injury" in inventory and "Cowardly" in inventory:
             slowprint(
-                "It's good to see there is some bravery in you, but maybe "
+                "\nIt's good to see there is some bravery in you, but maybe "
                 "you should have \nreserved it for when you aren't \n"
                 "injured and being attacked by bears... \n"
                 "Better luck next time! \n"
@@ -545,7 +549,7 @@ def third_battle_sword_or_greatsword():
             game_over()
         elif "Orc Injury" in inventory:
             slowprint(
-                "It's generally considered wise to hang back if you "
+                "\nIt's generally considered wise to hang back if you "
                 "recently got \nattacked by Orcs. You land a hit, but "
                 " one of the bears \nswipes at you. \n"
                 f"{INJURY_DIALOGUE}"
@@ -553,7 +557,7 @@ def third_battle_sword_or_greatsword():
             add_to_inventory("Bear Injury")
         else:
             slowprint(
-                "Your bravery is commendable, and rewarded! You land a "
+                "\nYour bravery is commendable, and rewarded! You land a "
                 "solid hit \non one of the bears and, between you, save "
                 "yourselves from \nthis threat. \n"
             )
@@ -622,7 +626,7 @@ def fourth_battle_injured():
 
         if fbsi_archer_choice == "a":
             slowprint(
-                "You pivot, firing an arrow towards the sneaking enemy... \n"
+                "\nYou pivot, firing an arrow towards the sneaking enemy... \n"
                 "Your injuries jar you and you miss... \n"
                 "But it's okay, Kili noticed your attempt and lands his own "
                 "shot! \n"
@@ -634,7 +638,7 @@ def fourth_battle_injured():
             slowprint(fbsi_archer_choice_wrong)
         elif fbsi_archer_choice == "b":
             slowprint(
-                "Teamwork is a wonderful thing, truly. \n"
+                "\nTeamwork is a wonderful thing, truly. \n"
                 "You say nothing, losing sight of the enemy until you hear a "
                 "cry... \n"
                 "Oh no! They attacked Balin! \n"
@@ -647,7 +651,7 @@ def fourth_battle_injured():
             game_over()
         elif fbsi_archer_choice == "c":
             slowprint(
-                "You alert the others to the enemy's approach. \n"
+                "\nYou alert the others to the enemy's approach. \n"
                 "While you and Balin maintain the attack on the turret "
                 "archers, "
                 "Kili successfully takes down the sneaking enemy. \n"
@@ -681,14 +685,14 @@ def fourth_battle_injured():
 
         if fbsi_melee_choice == "a":
             slowprint(
-                "You made a difficult decision in the heat of battle, \n"
+                "\nYou made a difficult decision in the heat of battle, \n"
                 "thankfully, it pays off, and you prevent the enemies from "
                 "moving past, forcing them back into the fray. \n"
                 "Good job! \n"
             )
         elif fbsi_melee_choice == "b":
             slowprint(
-                "I'm sure you can shout loudly, but not that loudly. \n"
+                "\nI'm sure you can shout loudly, but not that loudly. \n"
                 "Nobody hears you, and the enemies rush past, taking out \n"
                 "your archers before the other can stop them. \n"
                 "With no ranged defence, the Company is quickly "
@@ -697,7 +701,7 @@ def fourth_battle_injured():
             game_over()
         elif fbsi_melee_choice == "c":
             slowprint(
-                "This was a gamble. Balin spots the rebellious trio \n"
+                "\nThis was a gamble. Balin spots the rebellious trio \n"
                 "and attempts to prevent them from attacking. Unfortunately, "
                 "he is seriously \ninjured and out of the battle. \n"
             )
@@ -728,14 +732,14 @@ def fourth_battle_cowardly():
         fbc_archer_choice = input("")
         if fbc_archer_choice == "y":
             slowprint(
-                "Look at you, stepping up to the job! You ready an arrow... "
+                "\nLook at you, stepping up to the job! You ready an arrow... "
                 "fire... and land a hit!\n"
                 "Well done, you saved your trio from potentially "
                 "assassination.\n"
             )
         elif fbc_archer_choice == "n":
             slowprint(
-                "Still a bit cowardly, I see. The others don't see the "
+                "\nStill a bit cowardly, I see. The others don't see the "
                 "approaching enemy until \nit's too late.\n"
                 "Balin is injured before you counterattack.\n"
                 "You lead him to safety, but this leaves all the remaining "
@@ -761,14 +765,14 @@ def fourth_battle_cowardly():
         if fbc_melee_choice == "y":
             if "Daggers" in inventory:
                 slowprint(
-                    "You pivot, aim, and throw one of your daggers towards "
+                    "\nYou pivot, aim, and throw one of your daggers towards "
                     "the enemy... \n"
                     "Success! Your group is safe from that threat, at least. "
                     "\n"
                 )
             else:
                 slowprint(
-                    "You brace yourself before charging at the approaching "
+                    "\nYou brace yourself before charging at the approaching "
                     "enemy... \n"
                     "They don't expect it, and are out of the battle before "
                     "they can even react. \n"
@@ -776,7 +780,7 @@ def fourth_battle_cowardly():
                 )
         elif fbc_melee_choice == "n":
             slowprint(
-                "The enemies in front of you are important, yes, but that \n"
+                "\nThe enemies in front of you are important, yes, but that \n"
                 "approaching one is going to be even more important if they \n"
                 "get the drop on any of you... \n"
                 "Which they do. Gloin is attacked before anyone else can "
@@ -821,7 +825,7 @@ def fourth_battle_good():
     else:
         slowprint(
             "You charge towards the emerging enemies with the Company, battle "
-            "cries ringing \nthrough the air..."
+            "cries ringing \nthrough the air...\n"
             "You've done well so far, but this battle is much more difficult "
             "than those \nyou've faced along the way. \n"
             "The enemy attacks relentlessly, and you notice the Company's "
@@ -831,22 +835,22 @@ def fourth_battle_good():
             "b) Alert those around you of the growing struggle \n"
             "c) Do nothing: you have your own enemies to worry about \n"
         )
-        fbg_melee_choice = input(" ").lower()
+        fbg_melee_choice = input("").lower()
         if fbg_melee_choice == "a":
             slowprint(
-                "A risky decision, however the rest of the Company is "
+                "\nA risky decision, however the rest of the Company is "
                 "attacking strong \nand your assistance on the left disrupts "
                 "the enemies, forcing them to \nfall back... \n"
             )
         elif fbg_melee_choice == "b":
             slowprint(
-                "Somehow, your cry is heard over the turmoil. The Company "
+                "\nSomehow, your cry is heard over the turmoil. The Company "
                 "shifts as a whole \nto the left, overwhelming the enemy "
                 "in turn. \n"
             )
         elif fbg_melee_choice == "c":
             slowprint(
-                "Doing nothing in battle is never a wise choice. \n"
+                "\nDoing nothing in battle is never a wise choice. \n"
                 "With the rest of the Company focussed on their immediate "
                 "targets nobody goes to \nthe assistance of the left... \n"
                 "The enemy makes quick work of your teammates, before setting "
@@ -863,8 +867,8 @@ def pre_fourth_battle():
     Runs pre-Fourth-Battle description & allocates a battle to player
     """
     slowprint(
-        "Finally after many gruelling days the company spots the \n"
-        "Fortress only a couple leagues away. \n"
+        "Finally after many gruelling days the company spots the "
+        "Fortress only a couple \nleagues away. \n"
         "You're almost there! \n"
         "Congratulations on making it this far! \n\n"
         "As you and the Company approach, the Fortress is still... \n"
