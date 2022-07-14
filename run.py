@@ -6,7 +6,9 @@ import random
 import time
 import os
 
+
 inventory = []
+WEAPONS = []
 
 
 # CONSTS
@@ -19,15 +21,15 @@ COWARDLY_DIALOGUE = "You have gained the cowardly attribute. \n"
 
 FOOL_DIALOGUE = "You have gained the fool attribute. \n"
 
-YES_BOW = "Bow & Arrow" in inventory
-YES_SWORD = "Sword & Shield" in inventory
-YES_DAGGERS = "Daggers" in inventory
-YES_GREATSWORD = "Greatsword" in inventory
+YES_BOW = "Bow & Arrow" in WEAPONS
+YES_SWORD = "Sword & Shield" in WEAPONS
+YES_DAGGERS = "Daggers" in WEAPONS
+YES_GREATSWORD = "Greatsword" in WEAPONS
 
-NO_BOW = "Bow & Arrow" not in inventory
-NO_SWORD = "Sword & Shield" not in inventory
-NO_DAGGERS = "Daggers" not in inventory
-NO_GREATSWORD = "Greatsword" not in inventory
+NO_BOW = "Bow & Arrow" not in WEAPONS
+NO_SWORD = "Sword & Shield" not in WEAPONS
+NO_DAGGERS = "Daggers" not in WEAPONS
+NO_GREATSWORD = "Greatsword" not in WEAPONS
 
 YES_ORC = "Orc Injury" in inventory
 NO_ORC = "Orc Injury" not in inventory
@@ -69,7 +71,7 @@ def about_game():
     if game_instructions == "y":
         slowprint(
             "\n"
-            "Throughout the game, you will be presented with a number of /n"
+            "Throughout the game, you will be presented with a number of \n"
             "choices... \n"
             "Some will be ABCD - please type either a b c or d... \n"
             "Other choices will be yes/no (y/n)... \n"
@@ -112,8 +114,8 @@ def weapon_choice():
     Asks player to choose a weapon for their character.
     """
 
-    global weapons
-    weapons = [
+    global WEAPONS
+    WEAPONS = [
         "a) Bow & Arrow",
         "b) Sword & Shield",
         "c) Daggers",
@@ -122,7 +124,7 @@ def weapon_choice():
     slowprint(
         "The Dwarves would like to offer you a weapon.\n"
         "Your choices are:\n"
-        f"{', '.join(weapons)}"
+        f"{', '.join(WEAPONS)}"
     )
 
     choose_weapon = input("Please choose either a, b, c or d\n").lower()
@@ -134,7 +136,7 @@ def weapon_choice():
             "Sometimes, attacking from afar is the best option. \n"
             "Bow & Arrow was added to your inventory. \n"
             )
-        weapons = "Bow & Arrow"
+        WEAPONS = "Bow & Arrow"
         add_to_inventory("Bow & Arrow")
     elif "b" in choose_weapon:
         slowprint(
@@ -144,7 +146,7 @@ def weapon_choice():
             "With these, you can defend and attack with ease. \n"
             "Sword & Shield was added to your inventory. \n"
         )
-        weapons = "Sword & Shield"
+        WEAPONS = "Sword & Shield"
         add_to_inventory("Sword & Shield")
     elif "c" in choose_weapon:
         slowprint(
@@ -153,7 +155,7 @@ def weapon_choice():
             "These will allow you to perform amazing sneak attacks. \n"
             "Daggers were added to your inventory. \n"
         )
-        weapons = "Daggers"
+        WEAPONS = "Daggers"
         add_to_inventory("Daggers")
     elif "d" in choose_weapon:
         slowprint(
@@ -163,11 +165,12 @@ def weapon_choice():
             "damage. \n"
             "Greatsword was added to your inventory. \n"
         )
-        weapons = "Greatsword"
+        WEAPONS = "Greatsword"
         add_to_inventory("Greatsword")
     else:
         print("Please choose either a, b, c or d.\n")
         weapon_choice()
+    return WEAPONS
 
 
 def first_battle():
@@ -205,9 +208,9 @@ def first_battle():
 
     first_battle_choice = input(
         "Which enemy do you target? a, b, c or d \n"
-    ).lower()
+        ).lower()
 
-    if "a" in first_battle_choice and YES_SWORD:
+    if "a" in first_battle_choice and "Sword & Shield" in inventory:
         slowprint(
             "You ready a defensive stance in front of the Dwarves. \n"
             "The Orc and Warg attack, but you successfully deflect them \n"
@@ -216,7 +219,7 @@ def first_battle():
             "with the rest! \n"
         )
 
-    elif "a" in first_battle_choice and NO_SWORD:
+    elif "a" in first_battle_choice and "Sword & Shield" not in inventory:
         slowprint(
             "Oh no! Your chosen weapon is not suitable for this type "
             "of combat. \n"
@@ -227,7 +230,7 @@ def first_battle():
         )
         add_to_inventory("Orc Injury")
 
-    elif "b" in first_battle_choice and YES_GREATSWORD:
+    elif "b" in first_battle_choice and "Greatsword" in inventory:
         slowprint(
             "You charge past the first Orc and Warg to the Orc \n"
             "in the middle. \n"
@@ -237,7 +240,7 @@ def first_battle():
             "back into the forest. \n"
         )
 
-    elif "b" in first_battle_choice and NO_GREATSWORD:
+    elif "b" in first_battle_choice and "Greatsword" not in inventory:
         slowprint(
             "Oh no! Your chosen weapon is not suitable for this type "
             "of combat. \n"
@@ -248,7 +251,7 @@ def first_battle():
         )
         add_to_inventory("Orc Injury")
 
-    elif "c" in first_battle_choice and YES_BOW:
+    elif "c" in first_battle_choice and "Bow & Arrow" in inventory:
         slowprint(
             "You ready your bow, drawing back the string and letting loose "
             "an arrow. \nIt sails past the first two Orcs and the Warg, "
@@ -256,7 +259,7 @@ def first_battle():
             "repeat the action, taking down the second Orc as well. \n"
         )
 
-    elif "c" in first_battle_choice and NO_BOW:
+    elif "c" in first_battle_choice and "Bow & Arrow" not in inventory:
         slowprint(
             "Oh no! Your chosen weapon is not suitable for this type "
             "of combat. \n"
@@ -267,7 +270,7 @@ def first_battle():
         )
         add_to_inventory("Orc Injury")
 
-    elif "d" in first_battle_choice and YES_DAGGERS:
+    elif "d" in first_battle_choice and "Daggers" in inventory:
         slowprint(
             "You crouch, taking a wide birth to sneak up on the hidden Orc. \n"
             "They don't see you coming, and you successfully land a hit! \n"
@@ -275,7 +278,7 @@ def first_battle():
             "\n"
         )
 
-    elif "d" in first_battle_choice and NO_DAGGERS:
+    elif "d" in first_battle_choice and "Daggers" not in inventory:
         slowprint(
             "Oh no! Your chosen weapon is not suitable for this type \n"
             "of combat. \n"
@@ -290,6 +293,7 @@ def first_battle():
     else:
         slowprint("Please choose either a, b, c or d \n")
         first_battle()
+    return inventory
 
 
 def post_first_battle():
@@ -309,8 +313,8 @@ def post_first_battle():
 
     if post_first_battle_choice == "y":
         slowprint(
-            "You and the company quickly gather all your supplies, \n"
-            "keeping an ear out for any sounds from the forest. \n"
+            "You and the company quickly gather all your supplies, "
+            "keeping an ear out for \nany sounds from the forest. \n"
             "You form a protective huddle, and together push forward "
             "through the forest. \n"
         )
@@ -348,16 +352,17 @@ def second_battle():
 
     slowprint(
         "You continue along the path, but are soon stopped by a powerfully "
-        "flowing river. \n"
+        "flowing \nriver. \n"
         "In your packs, you each carry a bundle of rope. \n"
-        "One of the Dwarves points out a large tree which could be used \n"
-        "to affix the rope, allowing you all to move across. \n"
+        "One of the Dwarves points out a large tree which could be used "
+        "to affix the \nrope, allowing you all to move across. \n"
         "Somebody with an accurate and strong shot is needed, here... \n"
     )
     second_battle_choice = input(
         "Do you take the lead here, or let one of the others try first? y/n \n"
     ).lower()
-    if second_battle_choice == "y" and YES_BOW and YES_ORC:
+
+    if "y" in second_battle_choice and YES_BOW and YES_ORC:
         slowprint(
             "You wind the rope securely around an arrow and aim it at the "
             "tree... \n"
@@ -370,7 +375,7 @@ def second_battle():
         )
         game_over()
 
-    elif second_battle_choice == "y" and YES_BOW:
+    elif "y" in second_battle_choice and YES_BOW:
         slowprint(
             "You wind the rope securely around an arrow and aim it at "
             "the tree... \n"
@@ -378,7 +383,7 @@ def second_battle():
             "near you and \nbegin to climb across... \n"
             "The others soon follow. \n\n"
         )
-    elif second_battle_choice == "y" and NO_BOW:
+    elif "y" in second_battle_choice and NO_BOW:
         slowprint(
             "Interesting, do you plan to hurl your blade across the river "
             "at the tree? \n"
@@ -388,7 +393,7 @@ def second_battle():
             "Good job the Dwarves carry spares, eh? \n"
         )
         slowprint(f"{FOOL_DIALOGUE}")
-    elif second_battle_choice == "n" and YES_BOW and NO_ORC:
+    elif "n" in second_battle_choice and YES_BOW and NO_ORC:
         slowprint(
             "You know, sometimes you have to step up to the task. \n"
             "Thankfully, you're not the only archer in this company. \n"
@@ -412,22 +417,22 @@ def post_second_battle():
     Runs interlude between Second & Third Battles.
     If player is injured - reminds them of their weapon and character status
     """
-    if YES_ORC and YES_COWARDLY:
+    if "Orc Injury" in inventory and "Cowardly" in inventory:
         slowprint(
             "Somebody should really have supplied you with an adventuring "
             "handbook.\n"
             "As a reminder, your weapon is "
-            f"{weapons}, you have sustained an injury and your fellow "
+            f"{WEAPONS}, you have sustained an injury and your fellow "
             "travellers view you as a bit cowardly.\n"
         )
-    elif YES_ORC:
+    elif "Orc Injury" in inventory:
         slowprint(
             "Somebody should really have supplied you with an adventuring "
             "handbook.\n"
             "As a reminder, your weapon is "
-            f"{weapons} and you have sustained an injury."
+            f"{WEAPONS} and you have sustained an injury."
         )
-    elif YES_COWARDLY:
+    elif "Cowardly" in inventory:
         slowprint(
             "Things are going quite well, although it wouldn't hurt to have "
             "a bit more \nconfidence in yourself."
@@ -438,120 +443,139 @@ def post_second_battle():
         )
 
 
-def third_battle():
+def third_battle_bow():
     """
-    Runs Third Battle & asks player to choose an option
+    Runs Third Battle for Bow in inventory & asks player
+    to choose an option
     """
-    slowprint(
-        "Things are quiet for a while. \n"
-        "You enjoy the good weather the new day has to offer. \n"
-        "Suddenly, Ori shouts, and you and the company see two ginormous \n"
-        "bears bounding towards you... \n"
+    third_battle_choice = input(
         "Do you take cover behind the others, or join those who are "
-        "attacking? \n"
-    )
-    third_battle_choice = input("y/n \n").lower()
-
-    if YES_DAGGERS:
-        if "y" in third_battle_choice:
+        "attacking? y/n\n"
+        ).lower()
+    if "y" in third_battle_choice:
+        if YES_ORC and YES_COWARDLY:
             slowprint(
-                "Yeah, Daggers probably wouldn't have helped out much, here. "
+                f"Wise decision. Your {WEAPONS} is best suited to ranged "
                 "\n"
+                "combat, and your injury means you should avoid the heat "
+                "of battle. \n"
+                "You may be a bit cowardly, but you're also sensible. \n"
+                f"{SENSIBLE_DIALOGUE}"
             )
+            add_to_inventory("Sensible")
+            inventory.remove("Cowardly")
+        elif YES_COWARDLY:
+            slowprint(
+                f"Wise decision. Your {WEAPONS} is best suited to ranged "
+                "combat. \n"
+                "You may be a bit cowardly, but you're also sensible. \n"
+                f"{SENSIBLE_DIALOGUE}"
+            )
+            add_to_inventory("Sensible")
+            inventory.remove("Cowardly")
         else:
             slowprint(
-                "What's that saying about bringing knives to a gun fight...? "
-                "\n"
-                "This may be a bear fight, but the same principles apply... \n"
+                f"Wise decision. Your {WEAPONS} is best suited to ranged "
+                "combat. \n"
             )
-            game_over()
-
-    elif YES_BOW:
-        if "y" in third_battle_choice:
-
-            if YES_ORC and YES_COWARDLY:
-                slowprint(
-                    f"Wise decision. Your {weapons} is best suited to ranged "
-                    "\n"
-                    "combat, and your injury means you should avoid the heat "
-                    "of battle. \n"
-                    "You may be a bit cowardly, but you're also sensible. \n"
-                    f"{SENSIBLE_DIALOGUE}"
-                )
-                add_to_inventory("Sensible")
-                inventory.remove("Cowardly")
-            elif YES_COWARDLY:
-                slowprint(
-                    f"Wise decision. Your {weapons} is best suited to ranged "
-                    "combat. \n"
-                    "You may be a bit cowardly, but you're also sensible. \n"
-                    f"{SENSIBLE_DIALOGUE}"
-                )
-                add_to_inventory("Sensible")
-                inventory.remove("Cowardly")
-            else:
-                slowprint(
-                    f"Wise decision. Your {weapons} is best suited to ranged "
-                    "combat. \n"
-                )
-        else:
-            slowprint(
-                "Well, I'm sure you've made better decisions in your life... "
-                "\n"
-                "Before you can even notch an arrow, you're down for the "
-                "count \n"
-                f"{INJURY_DIALOGUE}"
-            )
-            add_to_inventory("Bear Injury")
-
-    elif YES_SWORD or YES_GREATSWORD:
-        if "y" in third_battle_choice:
-            if YES_ORC:
-                slowprint(
-                    f"Wise decision. Your {weapons} is suited for this type "
-                    "of combat, \n"
-                    "however your injury would likely have got you in "
-                    "trouble \n"
-                    f"{SENSIBLE_DIALOGUE}"
-                )
-                add_to_inventory("Sensible")
-            else:
-                slowprint(
-                    "Come on, now. What's the point in choosing the upfront \n"
-                    "weapons if you're just going to hide at the back? \n"
-                    f"{COWARDLY_DIALOGUE}"
-                    )
-                add_to_inventory("Cowardly")
-        else:
-
-            if YES_ORC and YES_COWARDLY:
-                slowprint(
-                    "It's good to see there is some bravery in you, but maybe "
-                    "you should have \nreserved it for when you aren't \n"
-                    "injured and being attacked by bears... \n"
-                    "Better luck next time! \n"
-                )
-                game_over()
-            elif YES_ORC:
-                slowprint(
-                    "It's generally considered wise to hang back if you "
-                    "recently got \nattacked by Orcs. You land a hit, but "
-                    " one of the bears \nswipes at you. \n"
-                    f"{INJURY_DIALOGUE}"
-                )
-                add_to_inventory("Bear Injury")
-            else:
-                slowprint(
-                    "Your bravery is commendable, and rewarded! You land a "
-                    "solid hit \non one of the bears and, between you, save "
-                    "yourselves from \n this threat. \n"
-                )
-
+    elif "n" in third_battle_choice:
+        slowprint(
+            "Well, I'm sure you've made better decisions in your life... "
+            "\n"
+            "Before you can even notch an arrow, you're down for the "
+            "count \n"
+            f"{INJURY_DIALOGUE}"
+        )
+        add_to_inventory("Bear Injury")
     else:
         slowprint(
             "Please choose either y or n \n"
         )
-        third_battle()
+        third_battle_bow()
+
+
+def third_battle_daggers():
+    """
+    Runs Third Battle for Daggers in inventory & asks player
+    to choose an option
+    """
+    third_battle_choice = input(
+        "Do you take cover behind the others, or join those who are "
+        "attacking? y/n\n"
+        ).lower()
+    if "y" in third_battle_choice:
+        slowprint(
+            "Yeah, Daggers probably wouldn't have helped out much, here. "
+            "\n"
+        )
+    elif "n" in third_battle_choice:
+        slowprint(
+            "What's that saying about bringing knives to a gun fight...? "
+            "\n"
+            "This may be a bear fight, but the same principles apply... \n"
+        )
+        game_over()
+    else:
+        slowprint(
+            "Please choose either y or n \n"
+        )
+        third_battle_daggers()
+
+
+def third_battle_sword_or_greatsword():
+    """
+    Runs Third Battle for Sword & Shield or Greatsword in inventory & asks
+    player to choose an option
+    """
+    third_battle_choice = input(
+        "Do you take cover behind the others, or join those who are "
+        "attacking? y/n\n"
+        ).lower()
+    if "y" in third_battle_choice:
+        if "Orc Injury" in inventory:
+            slowprint(
+                f"Wise decision. Your {WEAPONS} is suited for this type "
+                "of combat, \n"
+                "however your injury would likely have got you in "
+                "trouble \n"
+                f"{SENSIBLE_DIALOGUE}"
+            )
+            add_to_inventory("Sensible")
+        else:
+            slowprint(
+                "Come on, now. What's the point in choosing the upfront \n"
+                "weapons if you're just going to hide at the back? \n"
+                f"{COWARDLY_DIALOGUE}"
+                )
+            add_to_inventory("Cowardly")
+    elif "n" in third_battle_choice:
+        if "Orc Injury" in inventory and "Cowardly" in inventory:
+            slowprint(
+                "It's good to see there is some bravery in you, but maybe "
+                "you should have \nreserved it for when you aren't \n"
+                "injured and being attacked by bears... \n"
+                "Better luck next time! \n"
+            )
+            game_over()
+        elif "Orc Injury" in inventory:
+            slowprint(
+                "It's generally considered wise to hang back if you "
+                "recently got \nattacked by Orcs. You land a hit, but "
+                " one of the bears \nswipes at you. \n"
+                f"{INJURY_DIALOGUE}"
+            )
+            add_to_inventory("Bear Injury")
+        else:
+            slowprint(
+                "Your bravery is commendable, and rewarded! You land a "
+                "solid hit \non one of the bears and, between you, save "
+                "yourselves from \n this threat. \n"
+            )
+    else:
+        slowprint(
+            "Please choose either y or n \n"
+        )
+        third_battle_sword_or_greatsword()
 
 
 def post_third_battle():
@@ -561,7 +585,7 @@ def post_third_battle():
     """
     slowprint(
         "Things are certainly getting more dangerous... \n"
-        f"Here's {name_input}'s weapon & traits so far: {', '.join(inventory)}"
+        f"Here's {NAME_INPUT}'s weapon & traits so far: {', '.join(inventory)}"
         "\n"
     )
 
@@ -758,7 +782,7 @@ def fourth_battle_cowardly():
 
 def fourth_battle_good():
     """
-    Runs Fourth Battle if player has the Sensible trait in inventory or no 
+    Runs Fourth Battle if player has the Sensible trait in inventory or no
     traits (other than their weapon)
     """
     if YES_SENSIBLE:
@@ -785,7 +809,7 @@ def fourth_battle_good():
             "You charge towards the emerging enemies with the Company, battle "
             "cries ringing \nthrough the air..."
             "You've done well so far, but this battle is much more difficult "
-            "than those \nyou've faced so far. \n"
+            "than those \nyou've faced along the way. \n"
             "The enemy attacks relentlessly, and you notice the Company's "
             "left flank \nbecoming overwhelmed... \n"
             "Do you: \n"
@@ -817,9 +841,27 @@ def fourth_battle_good():
             game_over()
 
 
+def pre_third_battle():
+    """
+    Runs pre-Third-Battle description & allocates a battle to player
+    """
+    slowprint(
+        "Things are quiet for a while. \n"
+        "You enjoy the good weather the new day has to offer. \n"
+        "Suddenly, Ori shouts, and you and the company see two ginormous "
+        "bears bounding \ntowards you... \n"
+    )
+    if YES_BOW:
+        third_battle_bow()
+    elif YES_DAGGERS:
+        third_battle_daggers()
+    else:
+        third_battle_sword_or_greatsword()
+
+
 def pre_fourth_battle():
     """
-    Runs pre-Fourth Battle description
+    Runs pre-Fourth-Battle description & allocates a battle to player
     """
     slowprint(
         "Finally after many gruelling days the company spots the \n"
@@ -828,13 +870,16 @@ def pre_fourth_battle():
         "Congratulations on making it this far! \n"
         "As you and the Company approach, the Fortress is still... \n"
         "Thorin, the leader, gestures to get into position... \n"
-        "Suddenly, the front gates swing open and arrow rain down from \n"
+        "Suddenly, the front gates swing open and arrows rain down from \n"
         "the turrets above... \n"
         "The battle begins! \n"
     )
-    if YES_ORC or YES_BEAR:
+    if "Orc Injury" in inventory or "Bear Injury" in inventory:
         fourth_battle_injured()
-    elif YES_COWARDLY and NO_ORC and NO_BEAR:
+    elif (
+            "Cowardly" in inventory and
+            "Orc Injury" not in inventory and
+            "Bear Injury" not in inventory):
         fourth_battle_cowardly()
     else:
         fourth_battle_good()
@@ -862,10 +907,12 @@ def choose_name():
     """
     Asks player to choose a character name.
     """
-    global name_input
-    name_input = input("Please choose a name for your character: ").capitalize()
+    global NAME_INPUT
+    NAME_INPUT = input(
+        "Please choose a name for your character: "
+    ).capitalize()
 
-    slowprint(f"\nWelcome to the company, {name_input}! \n")
+    slowprint(f"\nWelcome to the company, {NAME_INPUT}! \n")
 
 
 def add_to_inventory(item):
@@ -878,7 +925,7 @@ def add_to_inventory(item):
 
 def clear_terminal():
     """
-    Clears the terminal after game over response given
+    Clears the terminal - used in game_over function
     """
     os.system('clear')
 
@@ -911,7 +958,7 @@ def main():
     post_first_battle()
     second_battle()
     post_second_battle()
-    third_battle()
+    pre_third_battle()
     post_third_battle()
     pre_fourth_battle()
     fourth_battle_end()
