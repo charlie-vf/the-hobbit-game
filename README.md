@@ -26,8 +26,10 @@ The live website can be found [here](https://the-hobbit-mya-game.herokuapp.com/)
     - [Post First Battle](#post-first-battle)
     - [Second Battle](#second-battle)
     - [Post Second Battle](#post-first-battle)
+    - [Pre Third Battle](#pre-third-battle)
     - [Third Battle](#third-battle)
     - [Post Third Battle](#post-third-battle)
+    - [Pre Fourth Battle](#pre-fourth-battle)
     - [Fourth Battle](#fourth-battle)
     - [Game End](#fourth-battle-end)
 - [Testing & Validation](#testing--validation)
@@ -87,6 +89,8 @@ I centered the Play Game button and the terminal for a more appealing web design
 
 - Light purple #870fcc is used for the game title and the Play Game button background
 - Dark purple #370753 is used for the Play Game button border
+- Black #000000 was used in the background so it blends with the terminal
+- White #ffffff was used for the Play Game button text
 
 ### **Font**
 
@@ -163,13 +167,13 @@ This post-battle does not contain any input requirements for the User. If they c
 
 ![Post Second Battle](docs/post-second-battle.png)
 
-### ** Pre Third Battle**
+### **Pre Third Battle**
 
 This runs dialogue about the battle that is about to happen, and allocates the User to one of three Third Battle trees dependent on their chosen weapon
 
 ### **Third Battle**
 
-The third battle presents the User with another y/n response. There are two potential game over paths here, dependent on the User's choice of weapon and responses in this battle and the previous ones. 
+The third battle presents the User with another y/n response. There are two potential game over paths here, dependent on the User's choice of weapon and responses in this battle and the previous ones.  
 The User can acquire up to two negative traits and one positive trait.
 
 ![Third Battle](docs/third-battle.png)
@@ -180,7 +184,7 @@ Before entering the final battle, the User is reminded of their characters weapo
 
 ![Post Third Battle](docs/post-third-battle.png)
 
-### ** Pre Fourth Battle**
+### **Pre Fourth Battle**
 
 This runs dialogue about the final battle, congratulates the player on making it this far, and allocates them to a Fourth Battle path dependent on which traits (if any) have been acquired so far.
 
@@ -199,11 +203,31 @@ If the User survives the final battle, they will be congratulated, with the fina
 ### **Game End**
 
 Following the final battle, the program will game over. The User has the option to try again, or to quit the game. The terminal will clear after the response is given.
+If the User chooses to play again, their inventory will be emptied.
+
+## **Technologies Used**
+
+- [Git](https://github.com/)
+    - Used for version control through GitPod terminal with commits to GitHub and pushes to GitHub & Heroku
+- [Heroku](https://www.heroku.com)
+    - Used for deployed application
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools)
+    - Used to work on HTML & CSS styling
+- [LucidChart](https://www.lucidchart.com)
+    - Used to create flowchart of game path
+- [Stack Overflow](https://stackoverflow.com)
+    - Used for troubleshooting Python issues
+- [Sys](https://docs.python.org/3/library/sys.html)
+    - Used on slowprint function
+    - Used on game_over function to exit game
+- [Time](https://docs.python.org/3/library/time.html)
+    - Used for delay in slowprint function
 
 ## **Testing & Validation**
 
-- I tested this game on various viewport sizes, both Mac and Windows, to ensure everything ran smoothly.
+- Game tested on both Mac and Windows to ensure everything ran smoothly.
     - This included the clear function in the game over function, which empties the terminal after the game over response is given.
+- Game tested on Chrome, Safari & Firefox
 - Encountered various instances where if statements were not working correctly
     - For the most part, this was due to trailing white spaces at the beginning of lines
 
@@ -211,35 +235,60 @@ Passing the Python code through PEP8 returned no serious issues.
 However, it did return issues with line length - these were caused by nested if statements leading to longer lines due to indentation.
 This was fixed by changing the position of line breaks and paragraphing.
 
-Final PEP8 test returned two issues - both for the two global variables. Global variables necessary here, however.
+Two linting errors present in code - both for the two global variables  
+NAME_INPUT and  
+WEAPONS  
+No fix found at this stage, but will research further.  
 
-Presented issues when using constants over "x in x":
-- Will look more into this so constants can be used to reduce repetition
+PEP8 online test returned no issues.
+
+![PEP8 Test](docs/pep8-test.png)
+
+Presented issues when using constants over "x in x":  
+- Will look more into this so constants can be used to reduce repetition  
 
 The WRC Validator returned no issues for HTML or CSS:
 
 ![HTML Validation](docs/html-validation.png)
 ![CSS Validation](docs/css-validation.png)
 
+### Manual Testing
+
+Game tested continuously by running through various options and responses (both correct and incorrect) to ensure User receives correct pathways and dialogue responses.  
+
 ### **User Stories**
 
-- First Time Stories
-    - Upon entering the game, the purpose of the site is immediately presented to the User with the Game Title and welcome message
-    - The instructions option will inform the User of how the game works and what is expected of them
-    - The game uses familiar names and monsters from The Hobbit to immerse the User
+### First Time Stories  
+
+*As a first time user, I want to easily understand what the site is for*  
+    - Upon entering the game, the purpose of the site is immediately presented to the User with the Game Title and welcome message  
+
+*As a first time user, I want to understand how the game works*  
+    - The instructions option will inform the User of how the game works and what is expected of them  
+
+*As a first time user, I want to revisit the world of The Hobbit*  
+    - The game uses familiar names and monsters from The Hobbit to immerse the User  
+
+*As a first time user, I want to enjoy playing a text-based adventure game*  
     - The game follows a steady pace so the User can easily follow along and enjoy the game
 
-- Returning Stories
-    - With previous knowledge, the User can follow different paths to see their outcomes
+### Returning Stories  
+
+*As a returning user, I want to explore the different routes available in the game*  
+    - With previous knowledge, the User can follow different paths to see their outcomes  
+
+*As a returning user, I want to see if I can finish the game with fewer negative traits and game overs than before*  
     - With previous knowledge, the User can avoid certain negative outcomes and see if they can improve upon their last play
     - The game is not too long, and the different paths avoid repetition, so the game remains interesting
 
-- Frequent Stories
-    - With solid knowledge on the game, the User can be confident in their ability to aim for a perfect run
+### Frequent Stories  
+
+*As a frequent user, I want to see if I can finish the game with no negative traits or game overs*  
+    - With solid knowledge on the game, the User can be confident in their ability to aim for a perfect run  
 
 ## **Credits**
 
-- The code for slowprint() was taken from stack overflow [here](https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python#:~:text=import%20random%20import%20sys%20import%20time%20def%20slowprint,between%20lines%20to%20add%20more%20dramatic%20effect.%20Share)
+- The code for slowprint() was taken from stack overflow [here](https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python#:~:text=import%20random%20import%20sys%20import%20time%20def%20slowprint,between%20lines%20to%20add%20more%20dramatic%20effect.%20Share) with the time altered to be slightly slower
 
 
 

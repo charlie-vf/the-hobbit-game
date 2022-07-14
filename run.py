@@ -9,6 +9,7 @@ import os
 
 inventory = []
 WEAPONS = []
+NAME_INPUT = None
 
 
 # CONSTS
